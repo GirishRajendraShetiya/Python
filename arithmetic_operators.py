@@ -47,3 +47,5 @@ print(a)  # 4
 temp_f = int(input("Enter temperature: "))  # 40
 temp_c = (temp_f - 32) * (5 / 9)
 print("Temperature in Celsius:", temp_c)  # 4.444444444444445
+
+# Equality (==) and Inequality (!=)

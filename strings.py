@@ -40,6 +40,7 @@ print(result)  # 6
 
 # Slicing: To get a part of the string.
 # [0:2] => 0 - starting index inclusive, 2 => ending index exclusive
+# [::-1] => To reverse a string
 
 statement = "How are you ?"
 print(statement[0:2])  # Ho
