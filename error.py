@@ -11,3 +11,5 @@
 
 # SyntaxError - some blunder made while writing the code.
 # print(“hello) - 2nd double quote is not entered.
+
+# IndexError: string index out of range

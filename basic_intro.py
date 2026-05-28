@@ -5,7 +5,7 @@
 
 # Through identity, mutability (changeable) and immutability (non-changeable) could be figured out.
 
-# Immutability
+# Immutability: Integers, Floats, Booleans, Tuples and Strings.
 
 num_1 = 10
 print(num_1)  # 10
