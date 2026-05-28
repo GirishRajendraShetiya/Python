@@ -112,4 +112,114 @@ txt = "Hello, welcome to my world."
 x = txt.rfind("l")
 print(x)  # 24
 
+# startswith method: To check whether a mentioned substring is present at the first in the string or not.
+# It’s case sensitive. Returns True / False.
+
+browser = "Google Chrome"
+print(browser.startswith("Gg"))  # False
+
+browser = "Google Chrome"
+print(browser.startswith("G"))  # True
+
+# endswith method: To check whether a mentioned substring is present at the end in the string or not.
+# It’s case sensitive. Returns True / False.
+
+browser = "Google Chrome"
+print(browser.endswith("mE"))  # False
+
+browser = "Google Chrome"
+print(browser.endswith("rome"))  # True
+
+# count method: To get the occurrence of a character in a string.
+# It’s case sensitive. If not found, it returns “0”.
+
+browser = "Google Chrome"
+print(browser.count("g"))  # 1
+
+# upper(), lower(), capitalize(), title(), swapcase()
+
+word = "Hello World"
+print(word.upper())  # HELLO WORLD
+print(word.lower())  # hello world
+print(word.capitalize())  # Hello world
+print(word.title())  # Hello World
+print(word.swapcase())  # hELLO wORLD
+
+# isupper(), islower(), istitle()
+# isalpha(), isnumeric(), isalnum(), isspace()
+
+word = "Hello World"
+print(word.isupper())  # False
+print(word.islower())  # False
+print(word.istitle())  # True
+
+word = "Hello World"
+print(word.isalpha())  # False - A space is included between the 2 words
+
+word = "HelloWorld"
+print(word.isalpha())  # True - No space between the words
+
+word = "123"
+print(word.isnumeric())  # True
+
+word = "Hello123"
+print(word.isalnum())  # True - No space, hence True
+
+word = "   "
+print(word.isspace())  # True
+
+# rstrip(), lstrip(), strip() - Default removal is a space character. Every time at the beginning and end.
+
+browser = "www.python.org"
+
+# (Will check for “w”, “o”, “r”, “g”, “.”)
+print(browser.strip("worg."))  # python
+print(browser.rstrip("worg."))  # www.python
+print(browser.lstrip("worg."))  # python.org
+
+# replace() - In place of a single character, two or more characters can be replaced.
+
+browser = "Google Chrome"
+print(browser.replace("o", "d"))  # Gddgle Chrdme
+
+def fancy_cleanup(word):
+    word = word.strip().replace("g", "z").replace(" ", "!")
+    return word
+
+print(fancy_cleanup("       geronimo crikey  "))  # zeronimo!crikey
+
+# format method:
+
+mad_libs = "{} laughed at the {} {}"
+print(mad_libs.format("Girish", "funny", "guy"))  # Girish laughed at the funny guy
+
+mad_libs = "{0} laughed at the {1} {2}"
+print(mad_libs.format("Girish", "funny", "guy"))  # Girish laughed at the funny guy
+
+mad_libs = "{name} laughed at the {adjective} {noun}."
+
+print(mad_libs.format(name ="Girish", adjective = "funny", noun = "guy"))  # Girish laughed at the funny guy
+print(mad_libs. format(name = "Jennifer", adjective = "funny", noun = "guy") )  # Jennifer laughed at the funny guy
+
+mad_libs = "{name} laughed at the {adjective} {noun}."
+
+name = input("Enter your name: ")
+adjective = input("Enter the adjective: ")
+noun = input("Enter the noun: ")
+
+print(mad_libs.format(name = name, adjective = adjective, noun = noun))
+
+# O/p:
+# Enter your name: Girish
+# Enter the adjective: cute
+# Enter the noun: girl
+# Girish laughed at the cute girl.
+
+# If the number of arguments passed are less than the index, then an IndexError gets populated.
+
+# Traceback (most recent call last):
+#   File "main.py", line 2, in <module>
+#     print(mad_libs.format("Girish", "funny"))
+# IndexError: Replacement index 2 out of range for positional args tuple
+
 
