@@ -30,3 +30,11 @@ set_1.add(10)
 print(set_1)  # {10}
 
 # The set_1 variable is pointing to same reference even after updating it, as it’s modifiable (mutable).
+
+# Comment is also called as 'octothorpe'
+# For inline comments, keep 2 spaces between the code and the “#” tag, and 1 space between the hash tag and the comment to be written.
+
+# Any file / folder containing the __init__.py file, it’s called a package.
+# Other .py files are called modules.
+
+# To install packages faster, use “uv” package manager instead of “pip”.
