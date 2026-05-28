@@ -56,3 +56,60 @@ print(statement[-12:])  # ow are you ?
 print(statement[:])  # How are you ?
 print(statement[2:])  # w are you ?
 print(statement[2:-5])  # w are
+
+# To validate palindrome
+def is_palindrome(str_1):
+    if str_1[:] == str_1[::-1]:
+        return True
+    return False
+
+result = is_palindrome("Level")
+print(result)  # False - "L" and "l" are not equal
+
+# Escape characters: \n, \t, \
+
+print("\"To be or not to be\", said by Hamlet")  # "To be or not to be", said by Hamlet
+
+file_1 = r"C:\users\name\templates"  # r is for raw data
+print(file_1)  # C:\users\name\templates
+
+# in and not in operator to check inclusion of a substring within a string
+
+browser = "Google"
+print('o' in browser)  # True
+
+browser = "Google"
+print('O' in browser)  # False - in and not in operator validates case-sensitivity
+
+# Method: A function that acts upon a specific object.
+
+# 1. find - to get the index of the first occurrence of the mentioned character.
+# The second number indicates from which position the search should start (the searching will be from 0, same as index).
+# If not found, -1 value will be returned.
+
+browser = "Google Chrome"
+print(browser.find("o", 4))  # 10
+
+# 2. index - It'll return the index of the first occurrence of the mentioned character.
+
+browser = "Google Chrome"
+print(browser.index("o"))  # 1
+
+browser = "Google Chrome"
+print(browser.index("Z"))  # ValueError generated
+
+# 3. rfind - While the find method returns the first index where a substring occurs, the rfind method returns the last index where a substring occurs.
+
+txt = "Hello, welcome to my world."
+x = txt.rfind("e")
+print(x)  # 13
+
+txt = "Hello, welcome to my world."
+x = txt.rfind("o")
+print(x)  # 22
+
+txt = "Hello, welcome to my world."
+x = txt.rfind("l")
+print(x)  # 24
+
+
