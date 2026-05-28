@@ -36,3 +36,14 @@ print(2 ** 2 ** 3)  # 256
 print((2 ** 2) ** 3)  # 64
 
 # Equal priority operators follow the left to right order except for exponentiations and operations within parentheses.
+
+# Augmented assignment operator: Mathematical operation done with equality operator (+=, -=, /=, *=)
+
+a = 2
+a += 2
+print(a)  # 4
+
+# input() is used to take user inputs
+temp_f = int(input("Enter temperature: "))  # 40
+temp_c = (temp_f - 32) * (5 / 9)
+print("Temperature in Celsius:", temp_c)  # 4.444444444444445
