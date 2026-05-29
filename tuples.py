@@ -37,4 +37,48 @@ values = ("Swift", "Renault", "Hyundai", "Tata")
 car_1, car_2, car_3, car_4 = values
 print(car_1, car_2, car_3, car_4)  # Swift Renault Hyundai Tata
 
+values = ("Swift", "Renault", "Hyundai", "Tata")
 
+car_1, car_2, car_3 = values
+print(car_1, car_2, car_3)  # ValueError: too many values to unpack (expected 3)
+
+# asterisk (*) is used to combine more than an object and the output is a list (NOT a tuple):
+# Only a single asterisk can be used at a time.
+
+values = ("Swift", "Renault", "Hyundai", "Tata")
+
+car_1, car_2, *car_3 = values
+print(car_1, car_2, car_3)  # O/p: Swift Renault ['Hyundai', 'Tata']
+
+values = ("Swift", "Renault", "Hyundai", "Tata")
+
+*car_1, car_2, car_3 = values
+print(car_1, car_2, car_3)  # ['Swift', 'Renault'], 'Hyundai', 'Tata'
+
+def greatest_num(*num_1):
+    greatest = num_1[0]
+    for number in num_1:
+        if number > greatest:
+            greatest = number
+            
+    return greatest
+
+print(greatest_num(1, 4, -2, 0))  # 4
+
+# If any variable is to be assigned post the *args variable, it should be a keyword argument.
+
+# def greatest_num(*num_1, name):
+# greatest_num(1, 3, 5, name = 'Girish')
+
+# To unpack arguments:
+
+def product(a, b):
+    return a * b
+
+print(product(3, 5))  # 15
+
+# tuple or list both can be used.
+numbers = [3, 5]
+numbers = (3, 5)
+
+print(product(*numbers))  # 15
