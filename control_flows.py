@@ -1,7 +1,5 @@
 # Control flow:
 
-# if condition: 
-
 # bool condition:
 
 print(bool(0))  # False
@@ -9,6 +7,8 @@ print(bool(1))  # True
 
 # Empty string & 0 has a false value
 # Rest others has a true value
+
+# if condition:
 
 def truthy_or_falsy(word):
     if bool(word):
@@ -169,3 +169,18 @@ def factorial(num_1):
     return num_1 * factorial(num_1 - 1)
     
 print(factorial(5))  # 120
+
+# For loop:
+
+words = ["cat", "dog", "rhino"]
+for word in words:
+    print(word)
+
+# O/p:
+# cat
+# dog
+# rhino
+
+# The variable used (“word” in this case) holds the latest / last value of the list.
+
+print("word")  # rhino
