@@ -352,6 +352,7 @@ def sum_from(num_1, num_2):
 
 print(sum_from(3, 8))  # 33
 
+# 1st option
 def same_index_values(list_1, list_2):
     list_3 = []
     for index in range(len(list_1)):
@@ -361,6 +362,7 @@ def same_index_values(list_1, list_2):
         
 print(same_index_values(["a", "b", "c", "d"], ["c", "b", "a", "d"]))  # [1, 3]
 
+# 2nd option
 def same_index_values(list_1, list_2):
     list_3 = []
     for index_1, _ in enumerate(list_1):
@@ -370,4 +372,379 @@ def same_index_values(list_1, list_2):
 
 print(same_index_values(["a", "b", "c", "d"], ["c", "b", "a", "d"]))  # [1, 3]
 
+# insert keyword: To add an object at any position in the list.
+# Previous objects are not over-written, instead their position changes respectively.
 
+coworkers = ["Saloni", "Vaishnavi", "Harshada", "Megha", "Ananya", "Samiksha"]
+coworkers.insert(1, "Nidhi")
+print(coworkers)  # ['Saloni', 'Nidhi', 'Vaishnavi', 'Harshada', 'Megha', 'Ananya', 'Samiksha']
+
+# If given an index not present in the list, Python will extend it to the last position of the list.
+
+coworkers = ["Saloni", "Vaishnavi", "Harshada", "Megha", "Ananya", "Samiksha"]
+coworkers.insert(11, "Sailee")
+print(coworkers)  # ['Saloni', 'Vaishnavi', 'Harshada', 'Megha', 'Ananya', 'Samiksha', 'Sailee']
+
+# 1st option
+def factors(whole_num):
+    list_1 = []
+    for i in range(1, whole_num + 1):
+        if whole_num % i == 0:
+            list_1.append(i)
+            
+    return list_1
+
+print(factors(10))  # [1, 2, 5, 10]
+
+# 2nd option
+def factors(whole_num):
+    list_1 = []
+    i = 1
+    while i <= whole_num:
+        if whole_num % i == 0:
+            list_1.append(i)
+        i += 1
+
+    return list_1
+
+print(factors(10))  # [1, 2, 5, 10]
+
+# pop() method: By default, it removes the last object from the list.
+
+coworkers = ["Saloni", "Vaishnavi", "Harshada", "Megha", "Ananya", "Samiksha"]
+coworkers.pop()
+print(coworkers)  # ['Saloni', 'Vaishnavi', 'Harshada', 'Megha', 'Ananya']
+
+coworkers = ["Saloni", "Vaishnavi", "Harshada", "Megha", "Ananya", "Samiksha"]
+coworkers.pop(1)
+print(coworkers)  # ['Saloni', 'Harshada', 'Megha', 'Ananya', 'Samiksha']
+
+coworkers = ["Saloni", "Vaishnavi", "Harshada", "Megha", "Ananya", "Samiksha"]
+coworkers.pop(-2)
+print(coworkers)  # ['Saloni', 'Vaishnavi', 'Harshada', 'Megha', 'Samiksha']
+
+# del keyword: Can remove more than an object at the same time.
+
+coworkers = ["Saloni", "Vaishnavi", "Harshada", "Megha", "Ananya", "Samiksha"]
+del coworkers[3]
+print(coworkers)  # ['Saloni', 'Vaishnavi', 'Harshada', 'Ananya', 'Samiksha']
+
+coworkers = ["Saloni", "Vaishnavi", "Harshada", "Megha", "Ananya", "Samiksha"]
+del coworkers[-3]
+print(coworkers)  # ['Saloni', 'Vaishnavi', 'Harshada', 'Ananya', 'Samiksha']
+
+coworkers = ["Saloni", "Vaishnavi", "Harshada", "Megha", "Ananya", "Samiksha"]
+del coworkers[3:5]
+print(coworkers)  # ['Saloni', 'Vaishnavi', 'Harshada', 'Samiksha'] - The 2nd index is exclusive
+
+# remove method: Removes an object by its value, not index.
+# It removes the first occurrence of the object.
+
+coworkers = ["Saloni", "Vaishnavi", "Harshada", "Megha", "Ananya", "Samiksha", "Vaishnavi"]
+coworkers.remove("Vaishnavi")
+print(coworkers)  # ['Saloni', 'Harshada', 'Megha', 'Ananya', 'Samiksha', 'Vaishnavi']
+
+# If the value is not found, it throws an error.
+
+# clear method: To clear the list.
+
+coworkers = ["Saloni", "Vaishnavi", "Harshada", "Megha", "Ananya", "Samiksha", "Vaishnavi"]
+coworkers.clear()
+print(coworkers)  # []
+
+def delete_all(string_list, target_string):
+    while target_string in string_list:
+        string_list.remove(target_string)
+
+    return string_list
+    
+print(delete_all([1, 2, 3, 3], 3))  # [1, 2]
+
+def push_or_pop(num_list):
+    list_1 = []
+    for number in num_list:
+        if number > 5:
+            list_1.append(number)
+        elif number <= 5:
+            list_1.pop()
+    
+    return list_1
+    
+print(push_or_pop([10, 20, 2, 30]))  # [10, 30]
+
+# reverse() method: It returns “None”.
+
+coworkers = ["Saloni", "Vaishnavi", "Harshada", "Megha", "Ananya", "Samiksha", "Vaishnavi"]
+coworkers.reverse()
+print(coworkers)  # ['Vaishnavi', 'Samiksha', 'Ananya', 'Megha', 'Harshada', 'Vaishnavi', 'Saloni']
+
+# sort() method: It sorts the method.
+
+coworkers = [0, 23, -11]
+coworkers.sort()
+print(coworkers)  # [-11, 0, 23]
+
+coworkers = ["Saloni", "Vaishnavi", "Harshada", "Megha", "Ananya", "Samiksha", "Vaishnavi"]
+coworkers.sort()
+print(coworkers)  # ['Ananya', 'Harshada', 'Megha', 'Saloni', 'Samiksha', 'Vaishnavi', 'Vaishnavi']
+
+# To sort strings in ascending order, it'll assign as per the first alphabet’s ASCII value of the string.
+coworkers = ["Saloni", "vaishnavi", "Harshada", "Megha", "ananya", "Samiksha", "Vaishnavi"]
+coworkers.sort()
+print(coworkers)  # ['Harshada', 'Megha', 'Saloni', 'Samiksha', 'Vaishnavi', 'ananya', 'vaishnavi']
+
+# sorted() method: Creates a new list in the memory.
+
+# count() method: To get the number of occurrences in a list. It’s case sensitive.
+
+coworkers = ["Saloni", "Vaishnavi", "Harshada", "Saloni", "Harshada", "Samiksha", "Vaishnavi"]
+print(coworkers.count("Saloni"))  # 2
+
+# index() method: Gives the first occurrence of an object. If not found, throws a ValueError.
+# index(value, starting_position) and starting_position is inclusive.
+
+coworkers = ["Saloni", "Vaishnavi", "Harshada", "Saloni", "Harshada", "Samiksha", "Vaishnavi"]
+print(coworkers.index("Saloni"))  # 0
+
+# Define an encrypt_message function that accepts a string.
+# The input string will consist of only alphabetic characters.
+# The function should return a string where all characters have been moved
+# "up" two spots in the alphabet. For example, "a" will become "c".
+#
+# EXAMPLES
+# encrypt_message("abc") => "cde"
+# encrypt_message("xyz") => "zab"
+# encrypt_message("")    => ""
+
+def encrypt_message(string_1):
+    output_string = ""
+    list_1 = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n",
+                "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+    for char in string_1:
+        char_index = list_1.index(char)
+        final_char_index = (char_index + 2) % 26
+        output_string += list_1[final_char_index]
+    return output_string
+    
+print(encrypt_message("xyz"))  # zab
+
+# copy() method: To make a copy of the list, the copy made is distinct on the computer’s memory.
+# [:] can also be used to create a list's copy.
+
+# split() method: Splits a string into a list based on the occurrence of the delimiter (sub-string) in the string
+# split(delimiter, threshold_value) -> split(' ', 2) - Only 2 spaces will be removed
+
+users = "Saloni, Nidhi, Samiksha, Sailee, Megha, Lavanya"
+print(users.split(", "))  # ['Saloni', 'Nidhi', 'Samiksha', 'Sailee', 'Megha', 'Lavanya']
+
+# join() method: To join all the objects.
+
+users = ["Saloni, Nidhi, Samiksha, Sailee, Megha, Lavanya"]
+print(" ".join(users))  # Saloni, Nidhi, Samiksha, Sailee, Megha, Lavanya
+
+def word_lengths(string_1):
+    list_1 = []
+    for word in string_1.split(" "):
+        list_1.append(len(word))
+    return list_1
+
+print(word_lengths("Mary Poppins was a nanny"))  # [4, 7, 3, 1, 5]
+
+# Define a cleanup function that accepts a list of strings.
+# The function should return the strings joined together by a space.
+# There's one BIG problem -- some of the strings are empty or only consist of spaces!
+# These should NOT be included in the final string
+#
+# cleanup(["cat", "er", "pillar"])           => "cat er pillar"
+# cleanup(["cat", " ", "er", "", "pillar"])  => "cat er pillar"
+# cleanup(["", "", " "])                     => ""
+
+# 1st option
+def cleanup(string_list):
+    while " " in string_list and "" in string_list:
+        string_list.remove(" ")
+        string_list.remove("")
+    
+    return " ".join(string_list)
+
+print(cleanup(["cat", " ", "er", "", "pillar"]))  # cat er pillar
+
+# 2nd option
+def cleanup(string_list):
+    final_string = ""
+    for word in string_list:
+        if word == "" or word == " ":
+            string_list.remove(word)
+    final_string += " ".join(string_list)
+    return final_string
+    
+print(cleanup(["cat", " ", "er", "", "pillar"]))  # cat er pillar
+
+# zip
+
+for a, b, c in zip([3, 2, 1], [1, 2, 3], [2, 3, 1]):
+  print("*-*".join([str(a), str(b), str(c)]))
+
+# O/p:
+# 3*-*1*-*2
+# 2*-*2*-*3
+# 1*-*3*-*1
+
+# Multi-dimensional list:
+
+# Define a fancy_concatenate function that accepts a list of lists of strings
+# The function should return a concatenated string
+# The strings in a list should only be concatenated if the length of the list is 3
+#
+# EXAMPLES
+# fancy_concatenate([["A", "B", "C"]])                        => "ABC"
+# fancy_concatenate([["A", "B", "C"], ["D", "E", "F"]])       => "ABCDEF"
+# fancy_concatenate([["A", "B", "C"], ["D", "E", "F", "G"]])  => "ABC"
+# fancy_concatenate([["A", "B", "C"], ["D", "E"]])            => "ABC"
+# fancy_concatenate([["A", "B"], ["C", "D"]])                 => ""
+
+def fancy_concatenate(strings_list):
+    final_string = ""
+    for i in strings_list:
+        if len(i) == 3:
+            for j in i:
+                final_string += j
+    return final_string
+
+answer = fancy_concatenate([["A", "B", "C"], ["D", "F"]])
+print(answer)  # ABC
+
+# List comprehension: In this, the variable used doesn’t store any value after the execution of the program ('number' in this case).
+# It will always generate a new list, not mutate the original one.
+
+numbers = [1, 2, 3, 4, 5]
+cube = [number ** 3 for number in numbers]
+print(cube)  # [1, 8, 27, 64, 125]
+
+# Declare a destroy_elements function that accepts two lists.
+# It should return a list of all elements from the first list that are NOT contained in the second list.
+# Use list comprehension in your solution.
+#
+# EXAMPLES
+# destroy_elements([1, 2, 3], [1, 2])      => [3]
+# destroy_elements([1, 2, 3], [1, 2, 3])   => []
+# destroy_elements([1, 2, 3], [4, 5])      => [1, 2, 3]
+
+def destroy_elements(list_1, list_2):
+    list_3 = [value for value in list_1 if value not in list_2]
+    return list_3
+    
+answer = destroy_elements([1, 2, 3], [1, 2])
+print(answer)  # [3]
+
+# Built-in functions: print, len, int, float, bool, zip, etc.
+
+# help, map, filter, lambda
+# map() function:
+
+numbers = [1, 2, 3, 4, 5]
+def cubes(num_1):
+    return num_1 ** 3
+    
+print(list(map(cubes, numbers)))  # [1, 8, 27, 64, 125]
+
+animals = ["cat", "dog", "lion", "tiger", "cheetah"]
+print(list(map(len, animals)))  # [3, 3, 4, 5, 7]
+
+animals = ["cat", "dog", "lion", "tiger", "cheetah"]
+long_animals = [animal for animal in animals if len(animal) > 3]
+print(long_animals)  # ['lion', 'tiger', 'cheetah']
+
+# filter(): The first command in the filter statement must return a boolean value.
+
+def is_long(animal):
+    return len(animal) > 3
+
+animals = ["cat", "dog", "lion", "tiger", "cheetah"]    
+print(list(filter(is_long, animals)))  # ['lion', 'tiger', 'cheetah']
+
+# lambda() function: no return keyword is required to use.
+
+animals = ["cat", "dog", "lion", "tiger", "cheetah"]
+print(list(filter(lambda animal: len(animal) > 3, animals)))  # ['lion', 'tiger', 'cheetah']
+
+# 1st option
+def right_words(string_list, num_1):
+    new_list = [string for string in string_list if len(string) == num_1]
+    return new_list
+
+print(right_words(['cat', 'dog', 'bean', 'ace', 'heart'], 3))  # ['cat', 'dog', 'ace']
+
+# 2nd option
+def right_words(string_list, num_1):
+    return list(filter(lambda string: len(string) == num_1, string_list))
+    
+print(right_words(['cat', 'dog', 'bean', 'ace', 'heart'], 3))  # ['cat', 'dog', 'ace']
+
+# 3rd option
+def right_words(string_list, num_1):
+    list_1 = []
+    for string in string_list:
+        if len(string) == num_1:
+            list_1.append(string)
+            
+    return list_1
+    
+print(right_words(['cat', 'dog', 'bean', 'ace', 'heart'], 3))  # Same output as above.
+
+def only_odds(num_list):
+    return list(filter(lambda num_1: num_1 % 2 != 0, num_list))
+    
+print(only_odds([1, 3, 5, 6, 7, 8]))  # [1, 3, 5, 7]
+
+# 1st option
+def count_of_a(string_list):
+    list_1 = []
+    for string in string_list:
+        list_1.append(string.count("a"))
+            
+    return list_1
+    
+print(count_of_a(["alligator", "aardvark", "albatross"]))  # [2, 3, 2]
+
+# 2nd option
+def count_of_a(string_list):
+    return list(map(lambda string: string.count("a"), string_list))
+    
+print(count_of_a(["alligator", "aardvark", "albatross"]))  # Same output as above.
+
+# all and any method - all is like “and” operation and any is like “or” operation.
+
+print(all([True]))  # True
+print(all([True, False]))  # False
+print(all([1, 2]))  # True
+print(all([1, 2, 0]))  # False
+print(all([]))  # True
+
+print(any([True]))  # True
+print(any([True, False]))  # True
+print(any([True]))  # True
+print(any(['', ' ']))  # True
+print(any(['']))  # False
+print(any([]))  # False
+
+# dir function: Displays the double underscore methods available in Python.
+
+print("st" in "pasta")  # True
+print("pasta".__contains__("st"))  # True
+
+print("pasta" + " and meatballs")  # pasta and meatballs
+print("pasta".__add__(" and meatballs"))  # pasta and meatballs
+
+# format() function: to get a formatted value of a number / string. Output is always from the <str> class.
+
+num_1 = 0.123456789
+print(format(num_1, "f"))  # 0.123457
+
+num_1 = 0.123456789
+print(format(num_1, ".3f"))  # 0.123
+
+print(format(0.6, ".2%"))  # 60.00%
+
+# string:
+print(format(1234567, ","))  # 1,234,567
