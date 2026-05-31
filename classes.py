@@ -958,4 +958,4 @@ print(obj.existing)  # "I exist" (normal lookup, __getattr__ NOT called)
 print(obj.missing)   # "Dynamic attribute: missing" (__getattr__ triggered)
 
 # Index/Key access
-print(obj["any_key"]) # "Container item: any_key" (__getitem__ triggered)
+print(obj["any_key"])  # "Container item: any_key" (__getitem__ triggered)
