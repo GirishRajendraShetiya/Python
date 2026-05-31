@@ -256,4 +256,343 @@ pookie_2.damage_happen(20)
 print(pookie_1.health)  # 80
 print(pookie_2.health)  # 90
 
+values = [
+    "Girish",
+    [1, 2, 3],
+    (4, 5, 6, 7),
+    {"a": 1, "b": 2}
+]
+for value in values:
+    print(len(value))
 
+# O/p:
+# 6
+# 3
+# 4
+# 2
+
+class Person():
+    def __init__(self, name, height):
+        self.name = name
+        self.height = height
+    
+    def __len__(self):
+        return self.height
+    
+values = [
+    "Girish",
+    [1, 2, 3],
+    (4, 5, 6, 7),
+    {"a": 1, "b": 2},
+    Person("Girish", 51)
+]
+for value in values:
+    print(len(value))
+
+# O/p:
+# 6
+# 3
+# 4
+# 2
+# 51
+
+import random
+
+class Player():
+    def __init__(self, games_played, victories):
+        self.games_played = games_played
+        self.victories = victories
+        
+    def win_ratio(self):
+        return self.victories / self.games_played
+        
+class HumanPlayer(Player):
+    def make_move(self):
+        print("Human")
+        
+class ComputerPlayer(Player):
+    def make_move(self):
+        print("Computer")
+        
+hp = HumanPlayer(30, 15)
+cp = ComputerPlayer(1000, 800)
+
+print(hp.win_ratio())  # 0.5
+print(cp.win_ratio())  # 0.8
+
+game_players = [hp, cp]
+
+starting_player = random.choice(game_players)
+starting_player.make_move()  # Human
+
+# In this exercise, we'll be modelling a routine for proper dental health,
+# which includes brushing our teeth, flossing, and using mouthwash.
+# The order of these three varies from person to person.
+
+# Declare a DentalHealthItem class. Its initialization should set a "price"
+# attribute.
+
+import random
+
+class DentalHealthItem():
+    def __init__(self, price):
+        self.price = price
+
+# Declare a Toothbrush subclass that inherits from DentalHealthItem.
+# On it, define a "use" instance method that returns "Brushing the teeth"
+
+ParentClass = DentalHealthItem
+
+class Toothbrush(ParentClass):
+    def use(self):
+        return "Brushing the teeth"
+
+# Declare a Floss subclass that inherits from DentalHealthItem.
+# On it, define a "use" instance method that returns "Flossing the teeth"
+
+class Floss(ParentClass):
+    def use(self):
+        return "Flossing the teeth"
+
+# Declare a Mouthwash subclass that inherits from DentalHealthItem.
+# On it, define a "use" instance method that returns "Washing the teeth"
+
+class Mouthwash(ParentClass):
+    def use(self):
+        return "Washing the teeth"
+
+# Instantiate an instance of a Toothbrush and assign it a "toothbrush" variable.
+# Instantiate an instance of a Floss and assign it a "floss" variable.
+# Instantiate an instance of a Mouthwash and assign it a "mouthwash" variable.
+
+toothbrush = Toothbrush(price = 5)
+floss = Floss(price = 7)
+mouthwash = Mouthwash(price = 10)
+
+# Declare a "dental_health_kit" variable. It should be a list that stores the three objects.
+
+dental_health_kit = [toothbrush, floss, mouthwash]
+
+# Import the "random" module (see last lesson for reference). 
+# Invoke the "shuffle" function from the module, passing in the dental_health_kit list. 
+# This will mutate the list, randomizing the order of its elements.
+
+random.shuffle(dental_health_kit)
+
+# Use list comprehension to invoke the "use" method on all three objects in "dental_health_kit".
+# Assign the resulting list of strings to an "actions" variable.
+
+actions = [step.use for step in dental_health_kit]
+print(actions)  # [<bound method Mouthwash.use of <__main__.Mouthwash object at 0x7d6350307380>>, <bound method Floss.use of <__main__.Floss object at 0x7d63503074d0>>,
+                # <bound method Toothbrush.use of <__main__.Toothbrush object at 0x7d6350306a50>>]
+                # (The instance method “use” is only passed, not invoked).
+
+actions = [step.use() for step in dental_health_kit]
+print(actions)  # ['Brushing the teeth', 'Washing the teeth', 'Flossing the teeth']
+
+# Name Mangling for Privacy: Double underscore is used to make an object’s attribute mangle.
+# Use if the subclass is going to accidentally overwrite something in the superclass and break the API.
+
+class Nonsense():
+    def __init__(self):
+        self.__some_attribute = "Hello"
+        
+    def __some_method(self):
+        print("This is coming from the __some_method !")
+
+ParentClass = Nonsense       
+class AnotherNonsense(ParentClass):
+    pass
+
+n = Nonsense()
+an = AnotherNonsense()
+
+n.__some_attribute  # AttributeError: 'Nonsense' object has no attribute '__some_attribute'
+
+class Nonsense():
+    def __init__(self):
+        self.__some_attribute = "Hello"
+        
+    def __some_method(self):
+        print("This is coming from the __some_method !")
+        
+class AnotherNonsense(Nonsense):
+    pass
+
+n = Nonsense()
+an = AnotherNonsense()
+
+# n.__some_attribute
+
+# object._ClassName__attribute_name / object._ClassName__instance_method_name
+print(n._Nonsense__some_attribute)  # Hello
+print(an._Nonsense__some_attribute)  # Hello
+an._Nonsense__some_method()  # This is coming from the __some_method !
+
+# Multiple Inheritance: To inherit from more than one super class.
+# If both the super classes have a method with the same name, it’ll check for the order it is fed into the subclass.
+
+class School():
+    def grades(self, grade):
+        print(f"You've got {grade} grade")
+    
+    def distance(self):
+        print("What is the distance to school ?")
+        
+class College():
+    def professor(self):
+        print("Who is the professor for this subject ?")
+        
+    def distance(self):
+        print("What is the distance to college ?")
+        
+class Student(School, College):
+    pass
+
+student = Student()
+student.distance()  # What is the distance to school ?
+
+class School():
+    def grades(self, grade):
+        print(f"You've got {grade} grade")
+    
+    def distance(self):
+        print("What is the distance to school ?")
+        
+class College():
+    def professor(self):
+        print("Who is the professor for this subject ?")
+        
+    def distance(self):
+        print("What is the distance to college ?")
+        
+class Student(College, School):
+    pass
+
+student = Student()
+student.distance()  # What is the distance to college ?
+
+# MRO (Method Resolution Order): It means the order in which Python resolves which method will be called / invoked.
+
+print(Student.mro())  # [<class '__main__.Student'>, <class '__main__.College'>, <class '__main__.School'>, <class 'object'>]
+
+# 2 ways of searching - DFS (Depth First Search) and BFS (Breadth First Search)
+# By default, Python uses DFS (Depth First Search)
+
+class Restaurant():
+    def make_reservations(self, party_size):
+        print(f"Booked a table for {party_size}")
+        
+class Steakhouse(Restaurant):
+    pass
+
+class Bar():
+    def make_reservations(self, party_size):
+        print(f"Booked a lounge for {party_size}")
+        
+class BarAndGrill(Steakhouse, Bar):
+    pass
+
+bag = BarAndGrill()
+bag.make_reservations(2)  # Booked a table for 2
+
+class Restaurant():
+    def make_reservations(self, party_size):
+        print(f"Booked a table for {party_size}")
+        
+class Steakhouse(Restaurant):
+    pass
+
+class Bar():
+    def make_reservations(self, party_size):
+        print(f"Booked a lounge for {party_size}")
+        
+class BarAndGrill(Bar, Steakhouse):
+    pass
+
+bag = BarAndGrill()
+bag.make_reservations(2)  # Booked a lounge for 2
+
+# Diamond-Shaped inheritance - If we see two or more occurrences of the same super class in the search priority,
+# Python will remove all the earlier occurrences of the class and will keep the latest one.
+
+class FilmMaker():
+    def give_interview(self):
+        print("I love making movies")
+        
+class Director(FilmMaker):
+    pass
+
+class ScreenWriter(FilmMaker):
+    def give_interview(self):
+        print("I love writing scripts")
+        
+class JackOfAllTrades(Director, ScreenWriter):
+    pass
+
+jack = JackOfAllTrades()
+jack.give_interview()  # I love writing scripts
+print(JackOfAllTrades.mro())  # [<class '__main__.JackOfAllTrades'>, <class '__main__.Director'>,
+                              # <class '__main__.ScreenWriter'>, <class '__main__.FilmMaker'>, <class 'object'>]
+
+# isinstance: To check whether an object belongs to a class mentioned in the second argument.
+
+print(isinstance(1, int))  # True
+print(isinstance("Hello", str))  # True
+print(isinstance([], (list, dict, str)))  # True
+
+class Person():
+    pass
+
+class Superhero(Person):
+    pass
+
+P = Person()
+S = Superhero()
+
+print(isinstance(P, Person))  # True
+print(isinstance(P, Superhero))  # False
+print(isinstance(S, Person))  # True
+print(isinstance(S, Superhero))  # True
+
+# issubclass: To check whether the first mentioned class is a sub class of the second mentioned class.
+
+class Person():
+    pass
+
+class Superhero(Person):
+    pass
+
+P = Person()
+S = Superhero()
+
+print(issubclass(Superhero, Person))  # True
+print(issubclass(Person, Superhero))  # False
+
+# Composition: Composition is a design pattern where an object stores another object as an attribute.
+# That way, a specific responsibility can be delegated to a separate object.
+# Many developers argue this leads to more stable architecture than using inheritance.
+
+class Engine():
+    def __init__(self, horse_power):
+        self.horse_power = horse_power
+    
+class Wheel():
+    def __init__(self, size):
+        self.size = size
+        
+class Car():
+    def __init__(self, make, model, power, wheel_size):
+        self.make = make
+        self.model = model
+        self.engine = Engine(power)
+        self.wheels = [Wheel(wheel_size) for _ in range(4)]
+        
+    def display_car(self):
+        return f"{self.make} {self.model} {self.engine.horse_power} (hp) {self.wheels[0].size} (in)"
+
+car1 = Car(make='Aston Martin', model='DB5', power = 500, wheel_size = 20)
+car2 = Car(make='BMW', model='M4', power = 485, wheel_size = 20)
+
+print(car1.display_car())  # Aston Martin DB5 500 (hp) 20 (in)
+print(car2.display_car())  # BMW M4 485 (hp) 20 (in)
