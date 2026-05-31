@@ -959,3 +959,11 @@ print(obj.missing)   # "Dynamic attribute: missing" (__getattr__ triggered)
 
 # Index/Key access
 print(obj["any_key"])  # "Container item: any_key" (__getitem__ triggered)
+
+# get / set instance methods: To keep a value in the system with different metrics than the world. (Eg: User wants weight in kg, but the business needs to store the weight in gram).
+# __getitem__ / __setitem__ methods: To get / update the values via the object created for a class.
+
+# getattr / setattr: To get / set the value of attribute.
+# getattr - Consists of 3 values (object of the class created, the attribute through which iteration will be done,
+# mandatory value - if attribute not found)
+# setattr - Used to create / set value of a dynamic attribute on an object, consists of 3 values (self, key, value)
