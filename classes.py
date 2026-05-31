@@ -285,6 +285,11 @@ print(cliff.income) # 10
 # Property - a getter method, a setter method, a deletor method, a docstring describing the function of the property.
 # It gives the appearance of an attribute, but behind the scenes, it invokes an instance method.
 
+# What is a property ?
+# A property has the appearance of an attribute on an object.
+# However, behind the scenes, it invokes an instance method (called a reader)
+# whenever it is accessed and also invokes an instance method (called a writer) whenever a new value is assigned to it.
+
 class Height():
     def __init__(self, feet):
         self._inches = feet * 12
