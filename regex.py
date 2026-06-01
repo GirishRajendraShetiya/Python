@@ -1,4 +1,4 @@
-Regular Expressions (RegEx) in Python: A way of searching a pattern.
+# Regular Expressions (RegEx) in Python: A way of searching a pattern.
 
 import re
 pattern = re.compile("flower")  # compile is used to set a pattern
@@ -119,8 +119,8 @@ print(pattern.findall(sentence))  # ['T', 'h', 'e', 'r', 'e', ' ', 'a', 'r', 'e'
 
 # Search for word and non-word characters:
 
-\w: any alphanumeric characters (a-z, A-Z, 0-9, _) except the spaces, periods and commas.
-\W: opposite of above.
+# \w: any alphanumeric characters (a-z, A-Z, 0-9, _) except the spaces, periods and commas.
+# \W: opposite of above.
 
 import re
 
@@ -133,8 +133,8 @@ print(pattern.findall(sentence))  # [' ', ' ', ' ', ' ', ',', ' ', ' ', ' ', ' '
 
 # Search for whitespace and non-whitespace characters:
 
-\s: for whitepace
-\S: opposite of above
+# \s: for whitepace
+# \S: opposite of above
 
 import re
 
