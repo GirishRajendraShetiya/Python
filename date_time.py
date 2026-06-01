@@ -2,7 +2,7 @@
 
 import datetime
 birthday = datetime.date(2026, 05, 18)
-print(birthday)  # Syntax Error (the zero behind the month’s number is not required)
+print(birthday)  # Syntax Error (the zero behind the month's number is not required)
 
 import datetime
 birthday = datetime.date(2026, 5, 18)
