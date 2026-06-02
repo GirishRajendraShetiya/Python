@@ -16,7 +16,7 @@ print(result.group())  # flower (able to let us know what's the found pattern)
 
 print(result.start())  # 9
 print(result.end())  # 15
-print(result.span())  # (9, 15 (9th index position is inclusive, but 15 is exclusive)
+print(result.span())  # (9, 15) (9th index position is inclusive, but 15 is exclusive)
 
 # THE SEARCH METHOD WILL RETURN THE MATCH OF THE FIRST OCCURRENCE OF THE PATTERN, NOT OTHER THAN THAT.
 
