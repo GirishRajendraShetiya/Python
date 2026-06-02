@@ -6,7 +6,7 @@
 # Commands:
 
 # pip install <package_name>: To install the latest package.
-# pip –version: To get the version installed on the system.
+# pip --version: To get the version installed on the system.
 # pip list: To get the list of packages installed
 # pip uninstall <package_name>: To uninstall a package.
 # pip install <package_name>==version: To install a specific version as per the requirement.
