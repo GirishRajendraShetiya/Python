@@ -279,7 +279,7 @@ if __name__ == "__main__":
 
 # The output will not represent the highlighted statement as all the test cases passed
 
-copy = values (Not mentioning the [:] will generate an error)
+# copy = values (Not mentioning the [:] will generate an error)
 
 # F.
 # ======================================================================
@@ -1111,7 +1111,7 @@ class MovieTest(unittest.TestCase):
         stuntman.light_on_fire.assert_called()
 
     if __name__ == "__main__":
-    unittest.main()
+        unittest.main()
 
 # O/p:
 # .
@@ -1450,7 +1450,7 @@ if __name__ == "__main__":
 
 # What patch patches:
 
-web_request.py
+# web_request.py
 
 # import urllib.request
 from urllib.request import urlopen
@@ -1466,7 +1466,7 @@ class WebRequest():
 
         return "FAILURE"
 
-patch-III.py
+# patch-III.py
 
 import unittest
 from unittest.mock import patch
