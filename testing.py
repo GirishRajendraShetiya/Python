@@ -9,7 +9,7 @@
 # In practice, no program is 100 % accurate, there are always some flaws.
 # The goal is to test the most important part of the business applications.
 
-# assert statement: Used to validate if a condition in the program is True (it'll return None),
+# assert statement: Used to validate if a condition in the program is True (it'll return nothing),
 # if not, an Assertion error will be raised.
 
 def add(x, y):
@@ -605,9 +605,9 @@ class TestRestaurant(unittest.TestCase):
     def test_owner_age(self):
         self.assertEqual(self.golden_palace.owner_age, 60)
 
-    def test_summary(self):self.assertEqual(
-            self.golden_palace.summary(),        
-            "This restaurant is owned by Jackie and is located in New York."
+    def test_summary(self):
+        self.assertEqual(
+        self.golden_palace.summary(), "This restaurant is owned by Jackie and is located in New York."
         )
 
 if __name__ == "__main__":
