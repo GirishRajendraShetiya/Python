@@ -1,6 +1,10 @@
 import unittest
 from poker.card import Card
 
+# python -m unittest discover tests: Command to run all the mentioned test files within the /tests folder at once.
+
+# python -m unittest .\tests\test_cards.py: Command to run a specific test file within the /tests folder.
+
 class CardTest(unittest.TestCase):
     def test_has_rank(self):
         card = Card(rank = "Queen", suit = "Hearts")
@@ -39,7 +43,23 @@ class CardTest(unittest.TestCase):
     def test_card_only_allows_valid_suit(self):
         with self.assertRaises(ValueError):
             Card(rank = "2", suit = "Hello")    
+            
+    def test_can_create_standard_52_cards(self):
+        cards = Card.create_standard_deck_of_52_cards()
+        self.assertEqual(len(cards), 52)
+        
+        self.assertEqual(
+            cards[0],
+            Card(rank = "2", suit = "Hearts")
+        )
 
-# python -m unittest discover tests: Command to run all the mentioned test files within the /tests folder at once.
-
-# python -m unittest .\tests\test_cards.py: Command to run a specific test file within the /tests folder.
+        self.assertEqual(
+            cards[-1],
+            Card(rank = "Ace", suit = "Diamonds")
+        )
+        
+    def test_figure_out_if_two_card_objects_are_equal(self):
+        self.assertEqual(
+            Card(rank = "2", suit = "Hearts"),
+            Card(rank = "2", suit = "Hearts")
+        )
