@@ -3,6 +3,16 @@
 
 # Note: By calling the input() function without saving it to a variable, and instructing the user to hit Enter, it can be used to exit a program.
 
+# Encoding / Decoding in strings
+string_1 = "Hello Special World !"
+encoded_string = string_1.encode("utf-8")
+
+print(string_1)  # Hello Special World !
+print(encoded_string)  # b'Hello Special World !'
+
+decoded_string = encoded_string.decode("utf-8")
+print(decoded_string)  # Hello Special World !
+
 # Length: To calculate the length.
 
 print(len(12))  # TypeError as there is no length for any integer
