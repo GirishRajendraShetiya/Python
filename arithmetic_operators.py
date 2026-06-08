@@ -49,3 +49,7 @@ temp_c = (temp_f - 32) * (5 / 9)
 print("Temperature in Celsius:", temp_c)  # 4.444444444444445
 
 # Equality (==) and Inequality (!=)
+
+a = 5
+b = True
+print(a + b)  # 6 - True has a value of 1 and False as 0
