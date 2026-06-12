@@ -8,7 +8,7 @@
 # It can interact and modify an object’s attribute, which in turn alters its state.
 
 # type - to get the class type of data
-# int, float & str - to convert to any data type
+# int, float, bool & str - to convert to any data type
 
 class Person():
     pass

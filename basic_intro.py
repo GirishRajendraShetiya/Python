@@ -38,3 +38,8 @@ print(set_1)  # {10}
 # Other .py files are called modules.
 
 # To install packages faster, use “uv” package manager instead of “pip”.
+
+# Data Types:
+# Numbers- Integers, Boolean, Float, Complex
+# Logical - And, Or, Not / Negation
+# String
