@@ -181,6 +181,28 @@ for word in words:
 # dog
 # rhino
 
-# The variable used (“word” in this case) holds the latest / last value of the list.
+# The variable used ('word' in this case) holds the latest / last value of the list.
 
 print("word")  # rhino
+
+staff = [("Amit", 16), ("Rana", 17), ("Purohit", 17)]
+
+for member, age in staff:
+    if age >= 18:
+        print(f"{member} is hired")
+        break
+
+# The below else block will execute if the above for loop didn't break
+else:
+    print("No one is eligible for hiring")  # No one is eligible for hiring
+
+# The condition is reversed
+staff = [("Amit", 16), ("Rana", 17), ("Purohit", 17)]
+
+for member, age in staff:
+    if age <= 18:
+        print(f"{member} is hired")
+        break
+
+else:
+    print("No one is eligible for hiring")  # Amit is hired
