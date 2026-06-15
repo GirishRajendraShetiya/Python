@@ -19,6 +19,11 @@ class Card():
             raise ValueError(f"The provided suit is not in {self.SUITS}")
         
         self.rank = rank
+        
+        # 14th Jun, 2026
+        self.rank_index = self.RANKS.index(rank)
+        # 14th Jun, 2026
+        
         self.suit = suit
 
     def __str__(self):
@@ -32,3 +37,12 @@ class Card():
 
     def __eq__(self, other):
         return self.rank == other.rank and self.suit == other.suit
+
+# 13th Jun, 2026
+    def __lt__(self, other):
+        return self.rank_index < other.rank_index  # 14th Jun, 2026
+        
+        current_card_rank_index = self.RANKS.index(self.rank)  # As the RANKS tuple is already sorted, comparing with the index is beneficial.
+        other_card_rank_index = self.RANKS.index(other.rank)
+        return current_card_rank_index < other_card_rank_index
+# 13th Jun, 2026

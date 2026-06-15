@@ -132,6 +132,42 @@ def fizzbuzz(num):
 
 print(fizzbuzz(30))  # Same as above with None at the end.
 
+flavors = ['mint', 'tulsi']
+choice_flavor = input("Enter your choice: ")
+
+while choice_flavor not in flavors:
+    choice_flavor = input("Enter again: ")
+
+print(f"{choice_flavor} is present")
+
+# O/p:
+# Enter your choice: f
+# Enter again: f
+# Enter again: mint
+# mint is present
+
+users = [
+    {'id': 1, 'total': 100, 'coupon': "P20"},
+    {'id': 2, 'total': 150, 'coupon': "F20"},
+    {'id': 3, 'total': 200, 'coupon': "G20"},
+    ]
+
+discounts = {
+    "P20": (0.2, 0),
+    "F20": (0.5, 0),
+    "G20": (0, 10),
+}
+
+for user in users:
+    percent, fixed = discounts.get(user['coupon'], (0, 0))
+    discount = user['total'] * percent + fixed
+    print(f"{user["id"]} paid {user["total"]} and got a discount of {discount}")
+
+# O/p:
+# 1 paid 100 and got a discount of 20.0
+# 2 paid 150 and got a discount of 75.0
+# 3 paid 200 and got a discount of 10
+
 # Recursion: A base case is important to stop at a particular point.
 
 # 1st option
@@ -181,6 +217,28 @@ for word in words:
 # dog
 # rhino
 
-# The variable used (“word” in this case) holds the latest / last value of the list.
+# The variable used ('word' in this case) holds the latest / last value of the list.
 
 print("word")  # rhino
+
+staff = [("Amit", 16), ("Rana", 17), ("Purohit", 17)]
+
+for member, age in staff:
+    if age >= 18:
+        print(f"{member} is hired")
+        break
+
+# The below else block will execute if the above for loop didn't break
+else:
+    print("No one is eligible for hiring")  # No one is eligible for hiring
+
+# The condition is reversed
+staff = [("Amit", 16), ("Rana", 17), ("Purohit", 17)]
+
+for member, age in staff:
+    if age <= 18:
+        print(f"{member} is hired")
+        break
+
+else:
+    print("No one is eligible for hiring")  # Amit is hired

@@ -1,4 +1,4 @@
-# A sequence of one or more steps, a series of instructions, a collection of organized Python code that can be re-used.
+break# A sequence of one or more steps, a series of instructions, a collection of organized Python code that can be re-used.
 
 # Types - Built-in (print, len, etc.) & Custom (user-defined).
 

@@ -233,4 +233,5 @@ print(mad_libs.format(name = name, adjective = adjective, noun = noun))
 #     print(mad_libs.format("Girish", "funny"))
 # IndexError: Replacement index 2 out of range for positional args tuple
 
-
+print("8" < "9")  # True
+print("9" < "10")  # False - Python will compare 9 with 1 and 0 separately.
