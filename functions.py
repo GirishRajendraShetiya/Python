@@ -100,3 +100,11 @@ def phone_update(version = []):
 
 phone_update()  # []
 phone_update("Raspberry")  # Raspberry
+
+# To return multiple values:
+def phone_update():
+    return 13, 14, 15
+
+thirteen, fourteen, _ = phone_update()
+print(thirteen)  # 13
+print(fourteen)  # 14 No error will be generated as for the third return value, an UNDERSCORE is used.

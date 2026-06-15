@@ -126,3 +126,12 @@ from calculator import *
 # A script refers to a Python file that is executed directly.
 # A module is a Python file that is imported by another file (such as a script).
 
+# Ways to import another module into the current one
+# import another_module
+# another_module.package()
+
+# from another_module import package_1
+# package_1()
+
+# from another_module import package_1 as p1
+# p1
