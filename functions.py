@@ -1,4 +1,4 @@
-break# A sequence of one or more steps, a series of instructions, a collection of organized Python code that can be re-used.
+# A sequence of one or more steps, a series of instructions, a collection of organized Python code that can be re-used.
 
 # Types - Built-in (print, len, etc.) & Custom (user-defined).
 
@@ -84,3 +84,27 @@ print(word_multiplier("Hello ", 5))  # Hello Hello Hello Hello Hello
 def word_multiplier(word: str, times: int) -> str:
     return word * times
 print(word_multiplier(5, 5))  # 25
+
+def phone_update(version = []):
+    version.append("Lollipop")
+    print(version)
+
+phone_update()  # ['Lollipop']
+phone_update()  # ['Lollipop', 'Lollipop'] - Known as the default trap
+
+# To avoid the above scenario:
+def phone_update(version = []):
+    if version is None:
+        version = []
+    print(version)
+
+phone_update()  # []
+phone_update("Raspberry")  # Raspberry
+
+# To return multiple values:
+def phone_update():
+    return 13, 14, 15
+
+thirteen, fourteen, _ = phone_update()
+print(thirteen)  # 13
+print(fourteen)  # 14 No error will be generated as for the third return value, an UNDERSCORE is used.
