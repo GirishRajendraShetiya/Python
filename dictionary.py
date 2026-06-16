@@ -430,6 +430,17 @@ print(answer)  # True
 
 # Dictionary comprehension:
 
+tea_price_inr = {
+    "Masala Chai": 40,
+    "Green Tea": 50,
+    "Lemon Tea": 60
+}
+
+tea_price_dollar = {
+    chai: inr_price / 95 for chai, inr_price in tea_price_inr.items()
+}
+print(tea_price_dollar)  # {'Masala Chai': 0.42105263157894735, 'Green Tea': 0.5263157894736842, 'Lemon Tea': 0.631578947368421}
+
 word = "hcgjxrhxjxfysrkxdtcuycuytvgjytvygviuttiovdcdxo"
 count_1 = {letter: word.count(letter) for letter in word}
 print(count_1)  # {'h': 2, 'c': 4, 'g': 3, 'j': 3, 'x': 5, 'r': 2, 'f': 1, 'y': 5, 's': 1, 'k': 1, 'd': 3, 't': 5, 'u': 3, 'v': 4, 'i': 2, 'o': 2}
