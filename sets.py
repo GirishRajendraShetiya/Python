@@ -128,3 +128,13 @@ print(mr_freeze)  # frozenset({1, 2, 3})
 
 mr_freeze = frozenset([1, 2, 3, 2])
 print({mr_freeze: 'Some value'})  # {frozenset({1, 2, 3}): 'Some value'}
+
+# Set comprehension:
+recipes = {
+    "Masala Chai": ["ginger", "cardamom", "clove"],
+    "Elaichi Chai": ["cardamom", "milk"],
+    "Spicy Chai": ["ginger", "black pepper", "clove"]
+}
+
+unique_spices = {unique_ness for ingredient in recipes.values() for unique_ness in ingredient}
+print(unique_spices)  # {'black pepper', 'milk', 'cardamom', 'clove', 'ginger'}
