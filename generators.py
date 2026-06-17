@@ -95,3 +95,42 @@ stall.send("Lambhorghini")
 # Preparing: Mercedes
 # Preparing: Lambhorghini
 
+# yield from:
+def local_chai():
+    yield "Masala Chai"
+    yield "Lemon Chai"
+    
+def imported_chai():
+    yield "Matcha"
+    yield "Oolong"
+    
+def full_menu():
+    yield from local_chai()
+    yield from imported_chai()
+
+for chai in full_menu():
+    print(chai)
+
+# O/p:
+# Masala Chai
+# Lemon Chai
+# Matcha
+# Oolong
+
+# close:
+def chai_stall():
+    try:
+        while True:
+            order = yield "Waiting for chai order"
+    except:
+        print("Stall closed, no more chai")
+        
+stall = chai_stall()
+print(next(stall))
+
+# O/p:
+# Waiting for chai order
+# Stall closed, no more chai
+
+stall.close()  # cleanup - closure of the generator (It's done automatically, but to be used as a procedure)
+
