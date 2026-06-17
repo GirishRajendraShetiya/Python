@@ -376,6 +376,7 @@ def uppercase(fn):
     def wrapper(*args, **kwargs):
         fn(*args, **kwargs).upper()
     return wrapper
+
 @uppercase
 def concatenate(a, b):
     """Combines two strings together"""
@@ -396,3 +397,39 @@ def concatenate(a, b):
     return a + b
 
 print(concatenate("pyt", "hon"))  # PYTHON
+
+# Log activity decorator:
+def log_activity(func):
+    def wrapper(*args, **kwargs):
+        print(f"Calling {func}")
+        result = func(*args, **kwargs)
+        print(f"Finished {func}")
+        return result
+    return wrapper
+
+@log_activity
+def brew_chai(type):
+    print(f"Brewing {type} Chai")
+    
+brew_chai("Masala")
+
+# O/p:
+# Calling <function brew_chai at 0x7f215b3958a0>
+# Brewing Masala Chai
+# Finished <function brew_chai at 0x7f215b3958a0>
+
+# Simple authentication decorator:
+def require_admin(func):
+    def wrapper(user_role):
+        if user_role.lower() != "admin":
+            print("Access restricted to only admin users.")
+        else:
+            return func(user_role)
+    return wrapper
+
+@require_admin
+def access_inventory(role):
+    print("Access has been granted !")
+
+access_inventory("user")  # Access restricted to only admin users.
+access_inventory("Admin")  # Access has been granted !
