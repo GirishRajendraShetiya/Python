@@ -10,6 +10,23 @@
 # type - to get the class type of data
 # int, float, bool & str - to convert to any data type
 
+# If there's only a function, it's called a function.
+# But, if it's within a class, the same is called as a method.
+
+class CupSize():
+    cup_size = 125
+    
+    def describe(self):
+        return f"A {self.cup_size} ml of cup"
+
+cup_1 = CupSize()
+print(cup_1.describe())  # A 125 ml of cup
+
+cup_2 = CupSize()
+cup_2.cup_size = 100
+print(CupSize.describe(cup_2))  # A 100 ml of cup - If calling at the class level, an argument is to be passed,
+# as the object will look at the class level, but in case of a class calling it's method, argument needs to be present.
+
 class Person():
     pass
 
@@ -22,7 +39,7 @@ print(Girish)  # <__main__.Person object at 0x7f14542768b0>
 
 # The 'self' keyword used in the below code, aids in getting the values coming to the class Piano().
 class Piano():
-    def __init__(self):
+    def __init__(self):  # Whenever an object of this class will be created, it'll trigger this method.
         print(f"This is {self}")
         
 Girish = Piano()  # This is <__main__.Piano object at 0x7f2dd8d6df10>
@@ -110,6 +127,46 @@ Rider_2.func_2()  # Aston Martin, you're in 2010
 
 Rider_1.func_3(100)
 print(Rider_1.year)  # 1908
+
+# Attribute Shadowing:
+class Chai():
+    temperature = "Hot"
+    strength = "Strong"
+
+cutting_chai = Chai()
+
+print("Before updating the temperature attrbute value:", cutting_chai.temperature)  # Hot
+cutting_chai.temperature = "Mild"
+print("Afer updating the temperature attrbute value:", cutting_chai.temperature)  # Mild
+
+print()
+print("Directly accessing the value of the temperature attribute via class:", Chai.temperature)  # Hot
+
+del cutting_chai.temperature
+print("After deletion of the cutting_chai.temperature latest's value:", cutting_chai.temperature)  # Hot
+# After deletion of the latest value, it fallbacks to the default one, known as "Attribute Shadowing"
+# It validates the attribute in MRO / LEGB order (first object, then in the class)
+
+# A tricky one:
+class Chai():
+    temperature = "Hot"
+    strength = "Strong"
+
+cutting_chai = Chai()
+
+Chai.temperature = "Mild"
+print(Chai.temperature)  # Mild
+print(cutting_chai.temperature)  # Mild
+
+print()
+cutting_chai.temperature = "Low"
+print(cutting_chai.temperature)  # Low
+
+print(Chai.temperature)  # Mild
+
+del Chai.temperature
+print(cutting_chai.temperature)  # Low - At the class level, the attribute is deleted, but not at the object level.
+# print(Chai.temperature)  Error will be populated as it's deleted.
 
 # Protected attributes and methods (Encapsulation): The attributes can be defined with an underscore to show Python developers
 # that it’s protected.
