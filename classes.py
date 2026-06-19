@@ -663,6 +663,7 @@ print(e2.data)  # Class attribute !
 # What is a static method ? How do you designate a method as a static method ?
 # It is a helper method that is defined inside a class body but accepts neither the instance nor the class an argument.
 # The @staticmethod decorator is placed above a method in the class body to designate it as a class method.
+# This method DOESN'T NEED to initialise an object.
 
 class Weather():
     def __init__(self, temp):
