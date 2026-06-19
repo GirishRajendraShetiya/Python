@@ -19,6 +19,9 @@ print('The file has been closed.')
 # Otherwise, it is possible for the program to run into an error midway through execution,
 # not close the file, and end up with corrupted content.
 
+# Also, while using the "with" command, in the back end, it calls the dunder methods __enter__() and
+# __exit__() respectively to perform the file operations.
+
 # By default, the open function will search the file in the same directory as the .py file.
 # If the mentioned file doesn't exist on the system, FileNotFound error will get populated.
 

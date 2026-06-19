@@ -56,6 +56,16 @@ def add_numbers(num_1, num_2):
         
 print(add_numbers(-1, 2))  # Are you out of your mind !
 
+class OutOfIngredientException(Exception):
+    pass
+
+def make_chai(milk, sugar):
+    if milk == 0 or sugar == 0:
+        raise OutOfIngredientException("Missing milk / sugar")
+    print("Chai is ready...")
+
+make_chai(milk = 0, sugar = 1)  # OutOfIngredientException: Missing milk / sugar
+
 # Exception Inheritance Hierarchies:
 
 class Mistake(Exception):
