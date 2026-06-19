@@ -596,3 +596,54 @@ car2 = Car(make='BMW', model='M4', power = 485, wheel_size = 20)
 
 print(car1.display_car())  # Aston Martin DB5 500 (hp) 20 (in)
 print(car2.display_car())  # BMW M4 485 (hp) 20 (in)
+
+# Inheritance with Composisiton:
+class BaseChai:
+    def __init__(self, type_):  # Instead of "type", "type_" is used as the "type" is a reserved keyword.
+        self.type = type_
+    
+    def prepare(self):
+        print(f"Preparing {self.type} chai...")
+
+ParentClass = BaseChai
+
+class MasalaChai(ParentClass):
+    def add_spices(self):
+        print("Adding ginger and cardamom")
+
+# Composition
+class ChaiShop:
+    chai_cls = ParentClass  # The base class is assigned to a variable.
+    # Within a class, never required to have the parenthesis with the another class name.
+    
+    def __init__(self):
+        self.chai = self.chai_cls("Regular")  # It's passed to the chai_cls variable,
+        # then to the BaseClass, it's initialisation method, then to the type variable
+    
+    def serve(self):
+        print(f"Serving {self.chai.type} chai")
+        self.chai.prepare()
+
+class FancyChaiShop(ChaiShop):  # Inheritance
+    chai_cls = MasalaChai  # Composition
+    
+shop = ChaiShop()
+fancy = FancyChaiShop()
+shop.serve()
+fancy.serve()
+
+# O/p:
+# Serving Regular chai
+# Preparing Regular chai...
+# Serving Regular chai
+# Preparing Regular chai...
+
+fancy.chai_cls.add_spices()  # TypeError: MasalaChai.add_spices() missing 1 required positional argument: 'self'
+# In Python, when you call a method directly on a class, Python does not automatically provide the self argument.
+# It expects you to pass an object into it. Because you didn't pass anything, it gave you the error.
+
+fancy.chai.add_spices()  # Adding ginger and cardamom - FancyChaiShop's parent class ChaiShop
+# might've created a constructor (initialisation) 
+
+# FancyChaiShop's class inherits from ChaiShop, which composites from BaseChai.
+# MasalaChai also inherits from BaseChai, so fancy object got the initialisation from BaseChai.
