@@ -20,7 +20,7 @@ class Hand():
             ("High Card", self._high_card)
         )
     
-    def best_rank(self):        
+    def best_rank(self):
         for rank in self._ranks_validation_from_best_to_worst:
             name, validator_func = rank
             if validator_func():
