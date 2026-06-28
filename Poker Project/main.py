@@ -17,8 +17,8 @@ deck.add_cards(card)
 # deck.cards.extend(card) - This could be used but not recommeneded as it goes deep inside the card object, which is not required by the deck class.
 
 # 27th Jun, 2026
-hand1 = Hand(cards = [])
-hand2 = Hand(cards = [])
+hand1 = Hand()
+hand2 = Hand()
 
 player1 = Player(name = "Girish", hand = hand1)
 player2 = Player(name = "Girish", hand = hand2)
