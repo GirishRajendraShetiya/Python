@@ -8,6 +8,21 @@ class HandTest(unittest.TestCase):
     def test_starts_out_with_no_cards(self):
         hand = Hand()
         self.assertEqual(hand.cards, [])
+    
+    def test_shows_all_its_cards_in_technical_representation(self):
+        cards = [
+            Card(rank = "King", suit = "Spades"),
+            Card(rank = "Queen", suit = "Hearts")
+        ]
+        
+        hand = Hand()
+        hand.add_cards(cards)
+        
+        self.assertEqual(
+            repr(hand),
+            "Queen of Hearts, King of Spades"
+        )
+    
     # 28th Jun, 2026
     
     def test_receives_and_stores_cards(self):

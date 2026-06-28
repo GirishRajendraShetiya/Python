@@ -2,6 +2,7 @@ from poker.card import Card
 from poker.deck import Deck
 
 # 27th Jun, 2026
+from poker.game_round import GameRound
 from poker.hand import Hand
 from poker.player import Player
 # 27th Jun, 2026
@@ -27,8 +28,8 @@ player2 = Player(name = "Girish", hand = hand2)
 # 28th Jun, 2026
 players = [player1, player2]
 
-# game_round = GameRound(deck = deck, players = players)
-# game_round.play()
+game_round = GameRound(deck = deck, players = players)
+game_round.play()
 # 28th Jun, 2026
 
-# from main import deck, card, hand1, hand2, player1, player2
+# from main import deck, card, game_round, hand1, hand2, player1, player2
