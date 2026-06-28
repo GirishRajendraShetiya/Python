@@ -8,3 +8,6 @@ class Player:
         
         return self.hand.best_rank()  # Dependency injection
 
+    def add_cards(self, cards):
+        self.hand.add_cards(cards)
+        
