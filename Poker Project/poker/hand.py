@@ -1,7 +1,11 @@
 # 13th Jun, 2026
 class Hand():
-    def __init__(self, cards):
-        copy = cards[:]  # A copy of the cards is made to avoid any issues.
+    def __init__(self):
+        self.cards = []
+    
+    def add_cards(self, cards):
+        copy = self.cards[:]
+        copy.extend(cards)
         copy.sort()
         self.cards = copy
     

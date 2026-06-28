@@ -4,6 +4,12 @@ from poker.card import Card
 
 # 13th Jun, 2026
 class HandTest(unittest.TestCase):
+    # 28th Jun, 2026
+    def test_starts_out_with_no_cards(self):
+        hand = Hand()
+        self.assertEqual(hand.cards, [])
+    # 28th Jun, 2026
+    
     def test_receives_and_stores_cards(self):
         ace_of_spades = Card(rank = "Ace", suit = "Spades")
         six_of_clubs = Card(rank = "6", suit = "Clubs")
@@ -12,7 +18,12 @@ class HandTest(unittest.TestCase):
             ace_of_spades,
             six_of_clubs
         ]
-        hand = Hand(cards = cards)
+        hand = Hand()
+        
+        # 28th Jun, 2026
+        hand.add_cards(cards)
+        # 28th Jun, 2026
+        
         self.assertEqual(
             hand.cards,
             [
@@ -23,7 +34,7 @@ class HandTest(unittest.TestCase):
     
     # 27th Jun, 2026
     def test_figures_out_best_rank_is_no_card(self):
-        hand = Hand(cards = [])
+        hand = Hand()
         self.assertEqual(
             hand.best_rank(),
             "No Cards"
@@ -35,7 +46,11 @@ class HandTest(unittest.TestCase):
             Card(rank = "7", suit = "Diamonds"),
             Card(rank = "Ace", suit = "Spades")
         ]
-        hand = Hand(cards = cards)
+        hand = Hand()
+        # 28th Jun, 2026
+        hand.add_cards(cards)
+        # 28th Jun, 2026
+        
         self.assertEqual(
             hand.best_rank(),
             "High Card"
@@ -47,7 +62,11 @@ class HandTest(unittest.TestCase):
             Card(rank = "Ace", suit = "Diamonds")
         ]
         
-        hand = Hand(cards = cards)
+        hand = Hand()
+        # 28th Jun, 2026
+        hand.add_cards(cards)
+        # 28th Jun, 2026
+        
         self.assertEqual(
             hand.best_rank(),
             "Pair"
@@ -62,7 +81,11 @@ class HandTest(unittest.TestCase):
             Card(rank = "King", suit = "Clubs")
         ]
         
-        hand = Hand(cards = cards)
+        hand = Hand()
+        # 28th Jun, 2026
+        hand.add_cards(cards)
+        # 28th Jun, 2026
+        
         self.assertEqual(
             hand.best_rank(),
             "Two Pair"
@@ -77,7 +100,11 @@ class HandTest(unittest.TestCase):
             Card(rank = "King", suit = "Clubs")
         ]
         
-        hand = Hand(cards = cards)
+        hand = Hand()
+        # 28th Jun, 2026
+        hand.add_cards(cards)
+        # 28th Jun, 2026
+        
         self.assertEqual(
             hand.best_rank(),
             "Three of a Kind"
@@ -92,7 +119,10 @@ class HandTest(unittest.TestCase):
             Card(rank = "10", suit = "Clubs")
         ]
             
-        hand = Hand(cards = cards)
+        hand = Hand()
+        # 28th Jun, 2026
+        hand.add_cards(cards)
+        # 28th Jun, 2026
             
         self.assertEqual(
             hand.best_rank(),
@@ -107,7 +137,11 @@ class HandTest(unittest.TestCase):
             Card(rank = "7", suit = "Clubs")
         ]
         
-        hand = Hand(cards = cards)
+        hand = Hand()
+        # 28th Jun, 2026
+        hand.add_cards(cards)
+        # 28th Jun, 2026
+        
         self.assertEqual(
             hand.best_rank(),
             "High Card"
@@ -119,7 +153,11 @@ class HandTest(unittest.TestCase):
             for rank in ["2", "5", "8", "10", "Ace"]
         ]
         
-        hand = Hand(cards = cards)
+        hand = Hand()
+        # 28th Jun, 2026
+        hand.add_cards(cards)
+        # 28th Jun, 2026
+        
         self.assertEqual(
             hand.best_rank(),
             "Flush"
@@ -134,7 +172,10 @@ class HandTest(unittest.TestCase):
             Card(rank = "2", suit = "Spades")
         ]
         
-        hand = Hand(cards = cards)
+        hand = Hand()
+        # 28th Jun, 2026
+        hand.add_cards(cards)
+        # 28th Jun, 2026
         
         self.assertEqual(
             hand.best_rank(),
@@ -150,7 +191,10 @@ class HandTest(unittest.TestCase):
             Card(rank = "2", suit = "Spades")
         ]
         
-        hand = Hand(cards = cards)
+        hand = Hand()
+        # 28th Jun, 2026
+        hand.add_cards(cards)
+        # 28th Jun, 2026
         
         self.assertEqual(
             hand.best_rank(),
@@ -167,7 +211,10 @@ class HandTest(unittest.TestCase):
             Card(rank = "7", suit = "Hearts")
         ]
         
-        hand = Hand(cards = cards)
+        hand = Hand()
+        # 28th Jun, 2026
+        hand.add_cards(cards)
+        # 28th Jun, 2026
         
         self.assertEqual(
             hand.best_rank(),
@@ -183,7 +230,10 @@ class HandTest(unittest.TestCase):
             Card(rank = "Ace", suit = "Hearts")
         ]
         
-        hand = Hand(cards = cards)
+        hand = Hand()
+        # 28th Jun, 2026
+        hand.add_cards(cards)
+        # 28th Jun, 2026
         
         self.assertEqual(
             hand.best_rank(),
