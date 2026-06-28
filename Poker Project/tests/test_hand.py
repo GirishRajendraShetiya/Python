@@ -21,6 +21,15 @@ class HandTest(unittest.TestCase):
             ]
         )
     
+    # 27th Jun, 2026
+    def test_figures_out_best_rank_is_no_card(self):
+        hand = Hand(cards = [])
+        self.assertEqual(
+            hand.best_rank(),
+            "No Cards"
+        )
+    # 27th Jun, 2026
+    
     def test_figures_out_high_card_is_best_rank(self):
         cards = [
             Card(rank = "7", suit = "Diamonds"),
