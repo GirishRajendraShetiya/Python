@@ -9,6 +9,10 @@ class GameRound():
         self._deal_initial_two_cards_to_each_player()
         self._make_bets()
 
+        # 29th Jun, 2026
+        self._deal_flop_cards()
+        # 29th Jun, 2026
+        
     def _shuffle_deck(self):
         self.deck.shuffle()
         
@@ -22,3 +26,10 @@ class GameRound():
             if player.wants_to_fold():
                 # Remove the player
                 self.players.remove(player)
+    
+    # 29th Jun, 2026
+    def _deal_flop_cards(self):
+        community_cards = self.deck.remove_cards(3)
+        for player in self.players:
+            player.add_cards(community_cards)
+    # 29th Jun, 2026
