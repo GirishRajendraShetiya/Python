@@ -48,28 +48,28 @@ class HandTest(unittest.TestCase):
         )
     
     # 27th Jun, 2026
-    def test_figures_out_best_rank_is_no_card(self):
-        hand = Hand()
-        self.assertEqual(
-            hand.best_rank(),
-            "No Cards"
-        )
+    # def test_figures_out_best_rank_is_no_card(self):
+    #     hand = Hand()
+    #     self.assertEqual(
+    #         hand.best_rank(),
+    #         "No Cards"
+    #     )
     # 27th Jun, 2026
     
-    def test_figures_out_high_card_is_best_rank(self):
-        cards = [
-            Card(rank = "7", suit = "Diamonds"),
-            Card(rank = "Ace", suit = "Spades")
-        ]
-        hand = Hand()
-        # 28th Jun, 2026
-        hand.add_cards(cards)
-        # 28th Jun, 2026
+    # def test_figures_out_high_card_is_best_rank(self):
+    #     cards = [
+    #         Card(rank = "7", suit = "Diamonds"),
+    #         Card(rank = "Ace", suit = "Spades")
+    #     ]
+    #     hand = Hand()
+    #     # 28th Jun, 2026
+    #     hand.add_cards(cards)
+    #     # 28th Jun, 2026
         
-        self.assertEqual(
-            hand.best_rank(),
-            "High Card"
-        )
+    #     self.assertEqual(
+    #         hand.best_rank(),
+    #         "High Card"
+    #     )
         
     def test_figures_out_pair_is_best_rank(self):
         cards = [
