@@ -40,6 +40,12 @@ class Card():
 
 # 13th Jun, 2026
     def __lt__(self, other):
+
+        # 08th Jul, 2026
+        if self.rank == other.rank:
+            return self.suit < other.suit
+        # 08th Jul, 2026
+
         return self.rank_index < other.rank_index  # 14th Jun, 2026
         
         current_card_rank_index = self.RANKS.index(self.rank)  # As the RANKS tuple is already sorted, comparing with the index is beneficial.

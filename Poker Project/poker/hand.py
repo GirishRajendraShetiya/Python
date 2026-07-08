@@ -1,6 +1,5 @@
 # 07th Jul, 2026
-from poker.validators import HighCardValidator
-from poker.validators import NoCardsValidator
+from poker.validators import NoCardsValidator, HighCardValidator, PairCardValidator
 # 07th Jul, 2026
 
 # 13th Jun, 2026
@@ -29,8 +28,12 @@ class Hand():
             ("Straight", self._straight),  # 14th Jun, 2026
             ("Three of a Kind", self._three_of_a_kind),
             ("Two Pair", self._two_pair),
-            ("Pair", self._pair),
             
+            # 08th Jul, 2026
+            # ("Pair", self._pair),
+            ("Pair", PairCardValidator(cards = self.cards).is_valid),
+            # 08th Jul, 2026
+
             # 07th Jul, 2026
             # ("High Card", self._high_card),
             ("High Card", HighCardValidator(cards = self.cards).is_valid),
@@ -87,7 +90,7 @@ class Hand():
         return len(ranks_with_four_of_a_kind) == 1
     
     def _full_house(self):
-        return self._three_of_a_kind() and self._pair()
+        return self._three_of_a_kind() and PairCardValidator(cards = self.cards).is_valid()
     
     def _flush(self):
         suit_that_occurs_5_or_more_times = {
@@ -120,9 +123,11 @@ class Hand():
         ranks_with_pairs = self._ranks_with_count(2)
         return len(ranks_with_pairs) == 2
     
-    def _pair(self):
-        ranks_with_pairs = self._ranks_with_count(2)
-        return len(ranks_with_pairs) == 1
+    # 08th Jul, 2026
+    # def _pair(self):
+    #     ranks_with_pairs = self._ranks_with_count(2)
+    #     return len(ranks_with_pairs) == 1
+    # 08th Jul, 2026
 
     # 07th Jul, 2026    
     # def _high_card(self):
