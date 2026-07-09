@@ -1,5 +1,10 @@
 # 07th Jul, 2026
-from poker.validators import NoCardsValidator, HighCardValidator, PairCardValidator
+from poker.validators import (
+    NoCardsValidator, 
+    HighCardValidator, 
+    PairCardValidator,
+    TwoPairValidator
+)
 # 07th Jul, 2026
 
 # 13th Jun, 2026
@@ -27,9 +32,10 @@ class Hand():
             ("Flush", self._flush),  # 14th Jun, 2026
             ("Straight", self._straight),  # 14th Jun, 2026
             ("Three of a Kind", self._three_of_a_kind),
-            ("Two Pair", self._two_pair),
             
             # 08th Jul, 2026
+            # ("Two Pair", self._two_pair),
+            ("Two Pair", TwoPairValidator(cards = self.cards).is_valid),
             # ("Pair", self._pair),
             ("Pair", PairCardValidator(cards = self.cards).is_valid),
             # 08th Jul, 2026
@@ -119,11 +125,11 @@ class Hand():
         return len(ranks_with_three_of_a_kind) == 1
             # return True
 
-    def _two_pair(self):
-        ranks_with_pairs = self._ranks_with_count(2)
-        return len(ranks_with_pairs) == 2
-    
     # 08th Jul, 2026
+    # def _two_pair(self):
+    #     ranks_with_pairs = self._ranks_with_count(2)
+    #     return len(ranks_with_pairs) == 2
+    
     # def _pair(self):
     #     ranks_with_pairs = self._ranks_with_count(2)
     #     return len(ranks_with_pairs) == 1

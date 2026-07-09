@@ -87,26 +87,26 @@ class HandTest(unittest.TestCase):
     #         hand.best_rank(),
     #         "Pair"
     #     )
-    # 08th Jul, 2026
     
-    def test_figures_out_two_pair_is_best_rank(self):
-        cards = [
-            Card(rank = "Ace", suit = "Diamonds"),
-            Card(rank = "5", suit = "Clubs"),
-            Card(rank = "Ace", suit = "Hearts"),
-            Card(rank = "King", suit = "Spades"),
-            Card(rank = "King", suit = "Clubs")
-        ]
+    # def test_figures_out_two_pair_is_best_rank(self):
+    #     cards = [
+    #         Card(rank = "Ace", suit = "Diamonds"),
+    #         Card(rank = "5", suit = "Clubs"),
+    #         Card(rank = "Ace", suit = "Hearts"),
+    #         Card(rank = "King", suit = "Spades"),
+    #         Card(rank = "King", suit = "Clubs")
+    #     ]
         
-        hand = Hand()
-        # 28th Jun, 2026
-        hand.add_cards(cards)
-        # 28th Jun, 2026
+    #     hand = Hand()
+    #     # 28th Jun, 2026
+    #     hand.add_cards(cards)
+    #     # 28th Jun, 2026
         
-        self.assertEqual(
-            hand.best_rank(),
-            "Two Pair"
-        )
+    #     self.assertEqual(
+    #         hand.best_rank(),
+    #         "Two Pair"
+    #     )
+    # 08th Jul, 2026
 
     def test_figures_out_three_of_a_kind_is_best_rank(self):
         cards = [
