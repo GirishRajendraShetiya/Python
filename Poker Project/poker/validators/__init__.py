@@ -1,5 +1,6 @@
 from .rank_validator import RankValidator
 
+from .three_of_a_kind_validator import ThreeOfAKindValidator
 from .two_pair_validator import TwoPairValidator
 from .pair_card_validator import PairCardValidator
 from .high_card_validator import HighCardValidator

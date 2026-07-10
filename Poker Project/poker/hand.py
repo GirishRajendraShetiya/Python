@@ -1,5 +1,6 @@
 # 07th Jul, 2026
 from poker.validators import (
+    ThreeOfAKindValidator,
     NoCardsValidator, 
     HighCardValidator, 
     PairCardValidator,
@@ -31,8 +32,12 @@ class Hand():
             ("Full House", self._full_house),  # 14th Jun, 2026
             ("Flush", self._flush),  # 14th Jun, 2026
             ("Straight", self._straight),  # 14th Jun, 2026
-            ("Three of a Kind", self._three_of_a_kind),
             
+            # 09th Jul, 2026
+            # ("Three of a Kind", self._three_of_a_kind),
+            ("Three of a Kind", ThreeOfAKindValidator(cards = self.cards).is_valid),
+            # 09th Jul, 2026
+
             # 08th Jul, 2026
             # ("Two Pair", self._two_pair),
             ("Two Pair", TwoPairValidator(cards = self.cards).is_valid),
@@ -96,7 +101,7 @@ class Hand():
         return len(ranks_with_four_of_a_kind) == 1
     
     def _full_house(self):
-        return self._three_of_a_kind() and PairCardValidator(cards = self.cards).is_valid()
+        return PairCardValidator(cards = self.cards).is_valid() and PairCardValidator(cards = self.cards).is_valid()
     
     def _flush(self):
         suit_that_occurs_5_or_more_times = {
@@ -120,10 +125,12 @@ class Hand():
         return rank_indexes == straight_consecutive_indexes
     # 14th Jun, 2026
     
-    def _three_of_a_kind(self):
-        ranks_with_three_of_a_kind = self._ranks_with_count(3)
-        return len(ranks_with_three_of_a_kind) == 1
+    # 09th Jul, 2026
+    # def _three_of_a_kind(self):
+    #     ranks_with_three_of_a_kind = self._ranks_with_count(3)
+    #     return len(ranks_with_three_of_a_kind) == 1
             # return True
+    # 09th Jul, 2026
 
     # 08th Jul, 2026
     # def _two_pair(self):
