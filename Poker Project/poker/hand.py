@@ -1,5 +1,6 @@
 # 07th Jul, 2026
 from poker.validators import (
+    FullHouseValidator,
     FlushValidator,
     StraightValidator,
     ThreeOfAKindValidator,
@@ -31,9 +32,11 @@ class Hand():
             ("Royal Flush", self._royal_flush),  # 14th Jun, 2026
             ("Straight Flush", self._straight_flush),  # 14th Jun, 2026
             ("Four of a Kind", self._four_of_a_kind),  # 14th Jun, 2026
-            ("Full House", self._full_house),  # 14th Jun, 2026
             
             # 10th Jul, 2026
+            # ("Full House", self._full_house),  # 14th Jun, 2026
+            ("Full House", FullHouseValidator(cards = self.cards).is_valid),
+
             # ("Flush", self._flush),  # 14th Jun, 2026
             ("Flush", FlushValidator(cards = self.cards).is_valid),
 
@@ -108,10 +111,10 @@ class Hand():
         ranks_with_four_of_a_kind = self._ranks_with_count(4)
         return len(ranks_with_four_of_a_kind) == 1
     
-    def _full_house(self):
-        return PairCardValidator(cards = self.cards).is_valid() and PairCardValidator(cards = self.cards).is_valid()
-    
     # 10th Jul, 2026
+    # def _full_house(self):
+    #     return ThreeOfAKindValidator(cards = self.cards).is_valid() and PairCardValidator(cards = self.cards).is_valid()
+    
     # def _flush(self):
     #     suit_that_occurs_5_or_more_times = {
     #         suit: suit_count
