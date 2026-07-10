@@ -148,43 +148,44 @@ class HandTest(unittest.TestCase):
     #         hand.best_rank(),
     #         "Straight"
     #     )
-        # 10th Jul, 2026
+        
 
 # 13th Jun, 2026
 
 # 14th Jun, 2026
-    def test_does_not_deem_two_consecutive_to_be_straight(self):
-        cards = [
-            Card(rank = "6", suit = "Spades"),
-            Card(rank = "7", suit = "Clubs")
-        ]
+    # def test_does_not_deem_two_consecutive_to_be_straight(self):
+    #     cards = [
+    #         Card(rank = "6", suit = "Spades"),
+    #         Card(rank = "7", suit = "Clubs")
+    #     ]
         
-        hand = Hand()
-        # 28th Jun, 2026
-        hand.add_cards(cards)
-        # 28th Jun, 2026
+    #     hand = Hand()
+    #     # 28th Jun, 2026
+    #     hand.add_cards(cards)
+    #     # 28th Jun, 2026
         
-        self.assertEqual(
-            hand.best_rank(),
-            "High Card"
-        )
+    #     self.assertEqual(
+    #         hand.best_rank(),
+    #         "High Card"
+    #     )
+
+    # def test_figures_out_best_rank_when_flush(self):
+    #     cards = [
+    #         Card(rank = rank, suit = "Hearts")
+    #         for rank in ["2", "5", "8", "10", "Ace"]
+    #     ]
         
-    def test_figures_out_best_rank_when_flush(self):
-        cards = [
-            Card(rank = rank, suit = "Hearts")
-            for rank in ["2", "5", "8", "10", "Ace"]
-        ]
+    #     hand = Hand()
+    #     # 28th Jun, 2026
+    #     hand.add_cards(cards)
+    #     # 28th Jun, 2026
         
-        hand = Hand()
-        # 28th Jun, 2026
-        hand.add_cards(cards)
-        # 28th Jun, 2026
-        
-        self.assertEqual(
-            hand.best_rank(),
-            "Flush"
-        )
-        
+    #     self.assertEqual(
+    #         hand.best_rank(),
+    #         "Flush"
+    #     )
+    # 10th Jul, 2026
+    
     def test_figures_out_full_house_is_best_rank(self):
         cards = [
             Card(rank = "3", suit = "Hearts"),

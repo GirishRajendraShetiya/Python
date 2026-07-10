@@ -1,5 +1,6 @@
 # 07th Jul, 2026
 from poker.validators import (
+    FlushValidator,
     StraightValidator,
     ThreeOfAKindValidator,
     NoCardsValidator, 
@@ -31,9 +32,11 @@ class Hand():
             ("Straight Flush", self._straight_flush),  # 14th Jun, 2026
             ("Four of a Kind", self._four_of_a_kind),  # 14th Jun, 2026
             ("Full House", self._full_house),  # 14th Jun, 2026
-            ("Flush", self._flush),  # 14th Jun, 2026
             
             # 10th Jul, 2026
+            # ("Flush", self._flush),  # 14th Jun, 2026
+            ("Flush", FlushValidator(cards = self.cards).is_valid),
+
             # ("Straight", self._straight),  # 14th Jun, 2026
             ("Straight", StraightValidator(cards = self.cards).is_valid),
             # 10th Jul, 2026
@@ -99,7 +102,7 @@ class Hand():
         return is_straight_flush and is_royal    
     
     def _straight_flush(self):
-        return self._flush() and StraightValidator(cards = self.cards).is_valid()
+        return FlushValidator(cards = self.cards).is_valid() and StraightValidator(cards = self.cards).is_valid()
     
     def _four_of_a_kind(self):
         ranks_with_four_of_a_kind = self._ranks_with_count(4)
@@ -108,16 +111,16 @@ class Hand():
     def _full_house(self):
         return PairCardValidator(cards = self.cards).is_valid() and PairCardValidator(cards = self.cards).is_valid()
     
-    def _flush(self):
-        suit_that_occurs_5_or_more_times = {
-            suit: suit_count
-            for suit, suit_count in self._card_suit_counts.items()
-            if suit_count >= 5
-        }
-        
-        return len(suit_that_occurs_5_or_more_times) == 1
-    
     # 10th Jul, 2026
+    # def _flush(self):
+    #     suit_that_occurs_5_or_more_times = {
+    #         suit: suit_count
+    #         for suit, suit_count in self._card_suit_counts.items()
+    #         if suit_count >= 5
+    #     }
+        
+    #     return len(suit_that_occurs_5_or_more_times) == 1
+    
     # def _straight(self):
     #     if len(self.cards) < 5:
     #         return False
@@ -165,16 +168,18 @@ class Hand():
             if rank_count == count
         }
     
+    # 10th Jul, 2026
     # 14th Jun, 2026
-    @property
-    def _card_suit_counts(self):
-        card_suit_counts = {}  # To get the relation between the rank and the count of ranks, a dictionary can be used.
+    # @property
+    # def _card_suit_counts(self):
+    #     card_suit_counts = {}  # To get the relation between the rank and the count of ranks, a dictionary can be used.
         
-        for card in self.cards:
-            card_suit_counts.setdefault(card.suit, 0)  # At first, the rank won't be in the card_rank_counts dictionary, so to add it to the dictionary, setdefault method is used.
-            card_suit_counts[card.suit] += 1  # {"Hearts": 5}
-        return card_suit_counts
+    #     for card in self.cards:
+    #         card_suit_counts.setdefault(card.suit, 0)  # At first, the rank won't be in the card_rank_counts dictionary, so to add it to the dictionary, setdefault method is used.
+    #         card_suit_counts[card.suit] += 1  # {"Hearts": 5}
+    #     return card_suit_counts
     # 14th Jun, 2026
+    # 10th Jul, 2026
     
     @property
     def _card_rank_counts(self):
