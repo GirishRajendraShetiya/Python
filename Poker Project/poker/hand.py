@@ -1,5 +1,6 @@
 # 07th Jul, 2026
 from poker.validators import (
+    StraightValidator,
     ThreeOfAKindValidator,
     NoCardsValidator, 
     HighCardValidator, 
@@ -31,8 +32,12 @@ class Hand():
             ("Four of a Kind", self._four_of_a_kind),  # 14th Jun, 2026
             ("Full House", self._full_house),  # 14th Jun, 2026
             ("Flush", self._flush),  # 14th Jun, 2026
-            ("Straight", self._straight),  # 14th Jun, 2026
             
+            # 10th Jul, 2026
+            # ("Straight", self._straight),  # 14th Jun, 2026
+            ("Straight", StraightValidator(cards = self.cards).is_valid),
+            # 10th Jul, 2026
+
             # 09th Jul, 2026
             # ("Three of a Kind", self._three_of_a_kind),
             ("Three of a Kind", ThreeOfAKindValidator(cards = self.cards).is_valid),
@@ -94,7 +99,7 @@ class Hand():
         return is_straight_flush and is_royal    
     
     def _straight_flush(self):
-        return self._flush() and self._straight()
+        return self._flush() and StraightValidator(cards = self.cards).is_valid()
     
     def _four_of_a_kind(self):
         ranks_with_four_of_a_kind = self._ranks_with_count(4)
@@ -112,17 +117,20 @@ class Hand():
         
         return len(suit_that_occurs_5_or_more_times) == 1
     
-    def _straight(self):
-        if len(self.cards) < 5:
-            return False
+    # 10th Jul, 2026
+    # def _straight(self):
+    #     if len(self.cards) < 5:
+    #         return False
         
-        rank_indexes = [card.rank_index for card in self.cards]
-        starting_rank_index = rank_indexes[0]
-        last_rank_index = rank_indexes[-1]
-        straight_consecutive_indexes = list(
-            range(starting_rank_index, last_rank_index + 1)
-        )
-        return rank_indexes == straight_consecutive_indexes
+    #     rank_indexes = [card.rank_index for card in self.cards]
+    #     starting_rank_index = rank_indexes[0]
+    #     last_rank_index = rank_indexes[-1]
+    #     straight_consecutive_indexes = list(
+    #         range(starting_rank_index, last_rank_index + 1)
+    #     )
+    #     return rank_indexes == straight_consecutive_indexes
+    # 10th Jul, 2026
+
     # 14th Jun, 2026
     
     # 09th Jul, 2026
