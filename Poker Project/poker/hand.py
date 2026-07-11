@@ -1,5 +1,6 @@
 # 07th Jul, 2026
 from poker.validators import (
+    StraightFlushValidator,
     FourOfAKindValidator,
     FullHouseValidator,
     FlushValidator,
@@ -31,9 +32,11 @@ class Hand():
     def _ranks_validation_from_best_to_worst(self):
         return (
             ("Royal Flush", self._royal_flush),  # 14th Jun, 2026
-            ("Straight Flush", self._straight_flush),  # 14th Jun, 2026
             
             # 11th Jul, 2026
+            # ("Straight Flush", self._straight_flush),  # 14th Jun, 2026
+            ("Straight Flush", StraightFlushValidator(cards = self.cards).is_valid),
+
             # ("Four of a Kind", self._four_of_a_kind),  # 14th Jun, 2026
             ("Four of a Kind", FourOfAKindValidator(cards = self.cards).is_valid),
             # 11th Jul, 2026
@@ -99,7 +102,7 @@ class Hand():
     
     # 14th Jun, 2026
     def _royal_flush(self):
-        is_straight_flush = self._straight_flush()
+        is_straight_flush = StraightFlushValidator(cards = self.cards).is_valid()
         
         # 27th Jun, 2026
         if not is_straight_flush:
@@ -109,10 +112,11 @@ class Hand():
         is_royal = self.cards[-1].rank == "Ace"
         return is_straight_flush and is_royal    
     
-    def _straight_flush(self):
-        return FlushValidator(cards = self.cards).is_valid() and StraightValidator(cards = self.cards).is_valid()
 
     # 11th Jul, 2026
+    # def _straight_flush(self):
+    #     return FlushValidator(cards = self.cards).is_valid() and StraightValidator(cards = self.cards).is_valid()
+
     # def _four_of_a_kind(self):
     #     ranks_with_four_of_a_kind = self._ranks_with_count(4)
     #     return len(ranks_with_four_of_a_kind) == 1
