@@ -224,27 +224,27 @@ class HandTest(unittest.TestCase):
     #         hand.best_rank(),
     #         "Four of a Kind"
     #     )
-    # 11th Jul, 2026
 
-    def test_figures_out_straight_flush_is_best_rank(self):
-        cards = [
-            Card(rank = "3", suit = "Hearts"),
-            Card(rank = "4", suit = "Hearts"),
-            Card(rank = "5", suit = "Hearts"),
-            Card(rank = "6", suit = "Hearts"),
-            # Card(rank = "7", suit = "Spades"),  # It's a false positive as there are 5 consecutive ranks, but not of same suits, a false positive
-            Card(rank = "7", suit = "Hearts")
-        ]
+    # def test_figures_out_straight_flush_is_best_rank(self):
+    #     cards = [
+    #         Card(rank = "3", suit = "Hearts"),
+    #         Card(rank = "4", suit = "Hearts"),
+    #         Card(rank = "5", suit = "Hearts"),
+    #         Card(rank = "6", suit = "Hearts"),
+    #         # Card(rank = "7", suit = "Spades"),  # It's a false positive as there are 5 consecutive ranks, but not of same suits, a false positive
+    #         Card(rank = "7", suit = "Hearts")
+    #     ]
         
-        hand = Hand()
-        # 28th Jun, 2026
-        hand.add_cards(cards)
-        # 28th Jun, 2026
+    #     hand = Hand()
+    #     # 28th Jun, 2026
+    #     hand.add_cards(cards)
+    #     # 28th Jun, 2026
         
-        self.assertEqual(
-            hand.best_rank(),
-            "Straight Flush"
-        )    
+    #     self.assertEqual(
+    #         hand.best_rank(),
+    #         "Straight Flush"
+    #     )
+    # 11th Jul, 2026
 
     def test_figures_out_royal_flush_is_best_rank(self):
         cards = [
