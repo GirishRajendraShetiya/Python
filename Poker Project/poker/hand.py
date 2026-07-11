@@ -1,5 +1,6 @@
 # 07th Jul, 2026
 from poker.validators import (
+    FourOfAKindValidator,
     FullHouseValidator,
     FlushValidator,
     StraightValidator,
@@ -31,8 +32,12 @@ class Hand():
         return (
             ("Royal Flush", self._royal_flush),  # 14th Jun, 2026
             ("Straight Flush", self._straight_flush),  # 14th Jun, 2026
-            ("Four of a Kind", self._four_of_a_kind),  # 14th Jun, 2026
             
+            # 11th Jul, 2026
+            # ("Four of a Kind", self._four_of_a_kind),  # 14th Jun, 2026
+            ("Four of a Kind", FourOfAKindValidator(cards = self.cards).is_valid),
+            # 11th Jul, 2026
+
             # 10th Jul, 2026
             # ("Full House", self._full_house),  # 14th Jun, 2026
             ("Full House", FullHouseValidator(cards = self.cards).is_valid),
@@ -106,11 +111,13 @@ class Hand():
     
     def _straight_flush(self):
         return FlushValidator(cards = self.cards).is_valid() and StraightValidator(cards = self.cards).is_valid()
-    
-    def _four_of_a_kind(self):
-        ranks_with_four_of_a_kind = self._ranks_with_count(4)
-        return len(ranks_with_four_of_a_kind) == 1
-    
+
+    # 11th Jul, 2026
+    # def _four_of_a_kind(self):
+    #     ranks_with_four_of_a_kind = self._ranks_with_count(4)
+    #     return len(ranks_with_four_of_a_kind) == 1
+    # 11th Jul, 2026
+
     # 10th Jul, 2026
     # def _full_house(self):
     #     return ThreeOfAKindValidator(cards = self.cards).is_valid() and PairCardValidator(cards = self.cards).is_valid()
@@ -164,12 +171,12 @@ class Hand():
     #     return len(self.cards) == 0
     # 07th Jul, 2026
 
-    def _ranks_with_count(self, count):
-        return {
-            rank: rank_count
-            for rank, rank_count in self._card_rank_counts.items()  # The dictionary will be from the protected _card_rank_counts method
-            if rank_count == count
-        }
+    # def _ranks_with_count(self, count):
+    #     return {
+    #         rank: rank_count
+    #         for rank, rank_count in self._card_rank_counts.items()  # The dictionary will be from the protected _card_rank_counts method
+    #         if rank_count == count
+    #     }
     
     # 10th Jul, 2026
     # 14th Jun, 2026
@@ -184,12 +191,12 @@ class Hand():
     # 14th Jun, 2026
     # 10th Jul, 2026
     
-    @property
-    def _card_rank_counts(self):
-        card_rank_counts = {}  # To get the relation between the rank and the count of ranks, a dictionary can be used.
+    # @property
+    # def _card_rank_counts(self):
+    #     card_rank_counts = {}  # To get the relation between the rank and the count of ranks, a dictionary can be used.
         
-        for card in self.cards:
-            card_rank_counts.setdefault(card.rank, 0)  # At first, the rank won't be in the card_rank_counts dictionary, so to add it to the dictionary, setdefault method is used.
-            card_rank_counts[card.rank] += 1  # {"Ace": 2}
-        return card_rank_counts
+    #     for card in self.cards:
+    #         card_rank_counts.setdefault(card.rank, 0)  # At first, the rank won't be in the card_rank_counts dictionary, so to add it to the dictionary, setdefault method is used.
+    #         card_rank_counts[card.rank] += 1  # {"Ace": 2}
+    #     return card_rank_counts
 # 13th Jun, 2026
