@@ -44,10 +44,10 @@ class Hand():
     )
 
     def best_rank(self):
-        for validator_klass in self.VALIDATORS:
+        for index, validator_klass in enumerate(self.VALIDATORS):
             validator = validator_klass(cards = self.cards)
             if validator.is_valid():
-                return validator.name
+                return (index, validator.name, validator.valid_cards())
 
 # 12th Jul, 2026
 #         for rank in self._ranks_validation_from_best_to_worst:
