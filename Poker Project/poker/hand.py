@@ -1,5 +1,6 @@
 # 07th Jul, 2026
 from poker.validators import (
+    RoyalFlushValidator,
     StraightFlushValidator,
     FourOfAKindValidator,
     FullHouseValidator,
@@ -31,8 +32,11 @@ class Hand():
     @property
     def _ranks_validation_from_best_to_worst(self):
         return (
-            ("Royal Flush", self._royal_flush),  # 14th Jun, 2026
-            
+            # 12th Jul, 2026
+            # ("Royal Flush", self._royal_flush),  # 14th Jun, 2026
+            ("Royal Flush", RoyalFlushValidator(cards = self.cards).is_valid),
+            # 12th Jul, 2026
+
             # 11th Jul, 2026
             # ("Straight Flush", self._straight_flush),  # 14th Jun, 2026
             ("Straight Flush", StraightFlushValidator(cards = self.cards).is_valid),
@@ -101,17 +105,19 @@ class Hand():
         # return "High Card"
     
     # 14th Jun, 2026
-    def _royal_flush(self):
-        is_straight_flush = StraightFlushValidator(cards = self.cards).is_valid()
+
+    # 12th Jul, 2026
+    # def _royal_flush(self):
+    #     is_straight_flush = StraightFlushValidator(cards = self.cards).is_valid()
         
-        # 27th Jun, 2026
-        if not is_straight_flush:
-            return False
-        # 27th Jun, 2026
+    #     # 27th Jun, 2026
+    #     if not is_straight_flush:
+    #         return False
+    #     # 27th Jun, 2026
         
-        is_royal = self.cards[-1].rank == "Ace"
-        return is_straight_flush and is_royal    
-    
+    #     is_royal = self.cards[-1].rank == "Ace"
+    #     return is_straight_flush and is_royal    
+    # 12th Jul, 2026
 
     # 11th Jul, 2026
     # def _straight_flush(self):

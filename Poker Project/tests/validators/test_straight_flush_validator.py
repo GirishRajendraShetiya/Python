@@ -46,7 +46,7 @@ class StraightFlushValidatorTest(unittest.TestCase):
             True
         )
 
-    def test_determines_that_there_are_five_consecutive_cards_with_same_suit(self):
+    def test_determines_that_there_are_only_five_consecutive_cards_with_same_suit(self):
         three = Card(rank = "3", suit = "Hearts")
         four = Card(rank = "4", suit = "Hearts")
         five = Card(rank = "5", suit = "Hearts")
