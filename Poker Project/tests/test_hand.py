@@ -2,6 +2,8 @@ import unittest
 from poker.hand import Hand
 from poker.card import Card
 
+from poker.validators import PairCardValidator
+
 # 13th Jun, 2026
 class HandTest(unittest.TestCase):
     # 28th Jun, 2026
@@ -47,6 +49,26 @@ class HandTest(unittest.TestCase):
             ]
         )
     
+    def test_interacts_with_validator_to_get_winning_hand(self):
+        class HandWithOneValidator(Hand):
+            VALIDATORS = (PairCardValidator, )  # If it's a TUPLE with SINGLE VALUE, a COMMA needs to be added.
+
+        ace_of_hearts = Card(rank = "Ace", suit = "Hearts")
+        ace_of_spades = Card(rank = "Ace", suit = "Spades")
+        
+        cards = [
+            ace_of_hearts,
+            ace_of_spades
+        ]
+
+        hand = HandWithOneValidator()
+        hand.add_cards(cards = cards)
+
+        self.assertEqual(
+            hand.best_rank(),
+            "Pair"
+        )
+
     # 27th Jun, 2026
     # def test_figures_out_best_rank_is_no_card(self):
     #     hand = Hand()
