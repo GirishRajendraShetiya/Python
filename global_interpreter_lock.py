@@ -148,3 +148,62 @@ t2.join()
 # Your Masala chai is ready
 # Your Ginger chai is ready
 
+# Download images via threading
+import threading
+import requests
+import time
+
+def download(url):
+    print(f"Starting download from {url}")
+    resp = requests.get(url)
+    print(f"Finished downloading from {url}, size: {len(resp.content)} bytes")
+
+urls = [
+    "https://httpbin.org/image/jpeg",
+    "https://httpbin.org/image/png",
+    "https://httpbin.org/image/svg"
+    ]
+    
+start = time.time()
+threads = []
+
+for url in urls:
+    t = threading.Thread(target = download, args = (url, ))
+    t.start()
+    threads.append(t)
+
+for t in threads:
+    t.join()
+    
+end = time.time()
+
+print(f"Total time: {end - start:.2f} seconds")
+
+# O/p:
+# Starting download from https://httpbin.org/image/jpeg
+# Starting download from https://httpbin.org/image/png
+# Starting download from https://httpbin.org/image/svg
+# Finished downloading from https://httpbin.org/image/svg, size: 8984 bytes
+# Finished downloading from https://httpbin.org/image/png, size: 8090 bytes
+# Finished downloading from https://httpbin.org/image/jpeg, size: 35588 bytes
+# Total time: 32.82 seconds
+
+# Thread lock
+import threading
+
+counter = 0
+lock = threading.Lock()
+
+def increment():
+    global counter
+    for _ in range(100000):
+        with lock:
+            counter += 1
+
+threads = [threading.Thread(target = increment) for _ in range(10)]
+[t.start() for t in threads]
+[t.join() for t in threads]
+
+print(f"Final counter: {counter}")
+
+# O/p: Final counter: 1000000

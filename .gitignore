@@ -1,0 +1,7 @@
+# Ignore Python compiled files
+*.pyc
+*.pyo
+*.pyd
+
+# git rm --cached *.pyc
+# git rm --cached -r __pycache__/
