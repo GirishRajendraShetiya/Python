@@ -2,6 +2,7 @@
 *.pyc
 *.pyo
 *.pyd
+settings.json
 
 # git rm --cached *.pyc
 # git rm --cached -r __pycache__/
