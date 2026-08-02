@@ -10,3 +10,5 @@
 
 # A spider folder in a scrapy project is the specific directory where you store all your individual Python spider files.
 # It acts as the central workspace for defining how different websites are crawled and parsed.
+
+# scrapy crawl <spider_name_specified_in_the_class> - To crawl / extract the data from a website.
