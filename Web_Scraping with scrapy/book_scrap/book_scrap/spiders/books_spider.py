@@ -18,6 +18,8 @@ class BooksSpider(scrapy.Spider):
     #     ]
 
     def parse(self, response):  # It's the response given to the user.
+        book_titles = response.css("article.product_pod h3 a::attr(title)").getall()
+
         with open("books.html", "wb") as file:  # The .html will be accessed in write and binary mode.
             file.write(response.body)
             
