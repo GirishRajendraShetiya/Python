@@ -18,8 +18,12 @@ class BooksSpider(scrapy.Spider):
     #     ]
 
     def parse(self, response):  # It's the response given to the user.
-        book_titles = response.css("article.product_pod h3 a::attr(title)").getall()
+        book_titles = response.css("article.product_pod h3 a::attr(title)").getall()  # Got it using the scrapy shell <website_url> command > response > response.css
 
-        with open("books.html", "wb") as file:  # The .html will be accessed in write and binary mode.
-            file.write(response.body)
+        for title in book_titles:
+            yield {"title": title}  # To get the output in sections, instead of whole, hence "yield" is used.
+            
+
+        # with open("books.html", "wb") as file:  # The .html will be accessed in write and binary mode.
+        #     file.write(response.body)
             

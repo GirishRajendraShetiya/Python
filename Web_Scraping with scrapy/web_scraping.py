@@ -277,4 +277,6 @@
 #  'Libertarianism for Beginners',
 #  "It's Only the Himalayas"]
 
+# scrapy crawl books -o books.json - To create a .json file with providing the name (here, it's books)
+
 
