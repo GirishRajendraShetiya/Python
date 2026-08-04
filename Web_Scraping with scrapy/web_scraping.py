@@ -277,6 +277,16 @@
 #  'Libertarianism for Beginners',
 #  "It's Only the Himalayas"]
 
+# scrapy crawl <name_set_at_first> -o <json_file_name_of_choice.json>
 # scrapy crawl books -o books.json - To create a .json file with providing the name (here, it's books)
 
+# In [3]: response.css("li.next a::attr(href)").get()
+# Out[3]: ['catalogue/page-2.html']
 
+# In [4]: next_page = response.css("li.next a::attr(href)").get()
+# In [5]: next_page
+# Out[5]: 'catalogue/page-2.html'
+
+# To join the above next_page to the main page's url, urljoin is used.
+# In [6]: response.urljoin(next_page)
+# Out[6]: 'http://books.toscrape.com/catalogue/page-2.html'
