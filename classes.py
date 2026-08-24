@@ -725,6 +725,28 @@ Elias = Student(maths = 50, history = 65, writing = 75)
 print(Bob == Joe)  # True
 print(Bob == Elias)  # False
 
+# If the property keyword is missed, that method needs to be called / invoked.
+
+class Student():
+    def __init__(self, maths, history, writing):
+        self.maths = maths
+        self.history = history
+        self.writing = writing
+    
+    # @property
+    def grades(self):
+        return self.maths + self.history + self.writing
+        
+    def __eq__(self, other_student):
+        return self.grades() == other_student.grades()
+        
+Bob = Student(maths = 100, history = 90, writing = 89)
+Joe = Student(maths = 90, history = 100, writing = 89)
+Elias = Student(maths = 50, history = 65, writing = 75)
+
+print(Bob == Joe)  # True
+print(Bob == Elias)  # False
+
 # Part A: Instantiation
 
 # Define a BusTrip class that has three parameters: destination, 
