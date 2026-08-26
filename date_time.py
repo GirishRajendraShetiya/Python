@@ -85,6 +85,9 @@ print(today.strftime("%d-%m-%Y"))  # 18-05-2026
 print(today.strftime("%A"))  # Monday
 print(today.strftime("%B"))  # May
 
+print(today.strftime("%a"))  # Mon
+print(today.strftime("%b"))  # May (3 letters for every month)
+
 # Define a one_from_two function that accepts a date object and a time object
 # It should return a datetime object consisting of 
 #     - the year, month and day from the date object 
