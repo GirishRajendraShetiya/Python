@@ -83,7 +83,7 @@ def chai_customer():
     order = yield # It stops the execution of the code and waits for the input to the yield field
     while True:
         print(f"Preparing: {order}")
-        order = yield
+        order = yield  # If not written, it'll go into infinite loop
         
 stall = chai_customer()
 next(stall)  # It initiates the generator
