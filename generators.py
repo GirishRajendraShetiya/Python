@@ -17,6 +17,23 @@ for cup in stall:
 # Cup 2: Elaichi Chai
 # Cup 3: Hot Chai
 
+squares_list = (x**2 for x in range(1, 6))
+print(next(squares_list))
+
+# O/p: 1
+
+squares_list = (x**2 for x in range(1, 6))
+
+for each in squares_list:
+    print(each)
+
+# O/p:
+# 1
+# 4
+# 9
+# 16
+# 25
+
 def return_chai_list():
     return ["Cup 1", "Cup 2", "Cup 3"]
 
