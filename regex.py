@@ -286,3 +286,6 @@ print(pattern.findall(sentence))  # ['555    123     4567', '555-123-4567']
 # To extract the 5 letter words: 
 # [a-zA-Z]{5} O/p: quick, brown, jumps, lazin (it's NOT correct as it has picked 5 letters from the laziness word)
 # Correct one - \b[a-zA-Z]{5}\b O/p: quick, brown, jumps (Due to \b at the start and end, it picks only those words having 5 letters)
+
+# Cat, caught, cart, cat, ct! - \b[cC][a-zA-Z]+t\b (doesn't include the last 'ct' as the + symbol expects ATLEAST ONE CHARACTER)
+# Cat, caught, cart, cat, ct! - \b[cC][a-zA-Z]*t\b (also includes the last 'ct' as the * symbol doesn't expects ANY CHARACTER)
