@@ -289,3 +289,18 @@ print(pattern.findall(sentence))  # ['555    123     4567', '555-123-4567']
 
 # Cat, caught, cart, cat, ct! - \b[cC][a-zA-Z]+t\b (doesn't include the last 'ct' as the + symbol expects ATLEAST ONE CHARACTER)
 # Cat, caught, cart, cat, ct! - \b[cC][a-zA-Z]*t\b (also includes the last 'ct' as the * symbol doesn't expects ANY CHARACTER)
+
+# timeout=30 - (?P<key>\w+)=(?P<val>\w+)
+
+# Anchors - ^ and $
+
+# Symbol    Meaning        Example    Matches        Fails
+# ^         Starts with	   ^Hello     "Hello world"  "Ah, Hello"
+# $         Ends with      bye$       "Good bye"     "bye now"
+
+# Quantifiers - *, + and ?
+
+# Symbol    Meaning        Example    Matches            Fails
+# *         0 or more      a*b        "b", "ab", "aaab"  "acb"
+# +         1 or more      a+b        "ab", "aaab"	     "b"
+# ?         0 or 1         apples?	  "apple", "apples"  "appless"
